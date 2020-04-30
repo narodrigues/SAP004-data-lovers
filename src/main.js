@@ -24,7 +24,7 @@ function createMiniCard(n) {
 for (let i = 0 ; i < 151; i++) {
 	createMiniCard(i);
 }
-    
+
 function miniCardMouseEvents(selectedDiv){
     let selectedMiniCard = document.getElementById(selectedDiv);
     selectedMiniCard.addEventListener("mouseover", minicardMouseOver);
@@ -39,7 +39,6 @@ function minicardMouseOver() {
 
 function minicardMouseOut() {
     let selectedMiniCard = event.currentTarget;
-    selectedMiniCard.style = "z-index: 0";
     selectedMiniCard.className = "mini-card-div";
 }
 
@@ -116,7 +115,6 @@ function minicardMouseClick(e){
     }
 
     for(let i = 0; i < evolutions.length; i++){
-
         const evolutionObj = myObject.pokemon.find(function(pokemonObj){
             return pokemonObj.num == evolutions[i];
         });
