@@ -1,14 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  
+<head>
+    
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <!--<meta name="viewport" content="width=device-width, inicial-scale=1.0">-->
+    <title>Pokédex Go</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image/png" href="Favicon.png"/>
+  
   </head>
+  
   <body>
-    <h1>Olarrr</h1>
-    <div id="root"></div>
 
+    <header>
+      
+      <div id="container-logo">
+        
+        <img id = "image-logo" src="../Imagens Finais/Go_Logo_final.png" alt="Logo Site">
+      
+      </div>
+ 
+    </header>
+    
+    
+
+    <main>
+      
+      <div id ="superior-container">
+
+        <div id = "menu-div" class="vertical-menu">
+        
+          <a href="#" class="active">Home</a>
+          <a href="#">Data</a>
+          <a href="#">Pokémon Go Tips</a>
+          <a href="#">Contact</a>
+      
+        </div>
+
+    
+
+        <div id="search-div">
+
+          <form id="search-form">
+          
+            <input type="text" id="search-home" placeholder="Localizar Pokémon...">
+          
+            <input type="submit" id="search-button" value="Procurar">
+
+          </form>
+
+        </div>
+
+        <div id="lists-div">
+        
+          <select id = "filter-type-home" class="lists-home" name="filter-type">
+          
+            <option value="0">Tipo de Filtro</option>
+            <option value="name">Tipo de Pokémon</option>
+            <option value="type">Vantagem Contra</option>
+            <option value="type">Fraqueza Contra</option>
+      
+          </select>
+      
+          </select>
+        
+          <select id="sort-home" class="lists-home" name="sort" placeholder="Selecione a Ordenação">
+          
+            <option value="0">Ordene por</option>
+            <option value="a-z">Ordem Alfabética Crescente</option>
+            <option value="z-a">Ordem Alfabética Decrescente</option>
+            <option value="">Ordem Numérica Crescente</option>
+            <option value="">Ordem Numérica Decrescente</option>
+      
+          </select>
+    
+        </div>
+      
+      </div>
+
+     
+     
+      <div id="inferior-container">
+
+        <div id="mini-card-container"></div>     
+    
+      </div>
+
+    </main>
+
+    <footer>
+      
+      <div class="footer-container">
+
+        <p id="cp-text">© Copyright 2020 Pokédex Go. All rights reserved.</p>
+      
+      </div>
+    
+    </footer>
+    
     <script src="main.js" type="module"></script>
+  
   </body>
+
 </html>
