@@ -2,149 +2,111 @@
 <html>
   
 <head>
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Go</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" type="image/png" href="Favicon.png"/>
-  
   </head>
   
   <body>
     <header>
-      
       <div id="container-logo">
-        
         <img id = "image-logo" src="../Imagens Finais/Go_Logo_final.png" alt="Logo Site">
-      
       </div>
- 
-    </header>
-    
-    
+    </header> 
 
     <main>
-      
       <div id ="superior-container">
-
         <div id = "menu-div" class="vertical-menu">
-        
           <a href="#" class="active">Home</a>
           <a href="#">Data</a>
           <a href="#">Pokémon Go Tips</a>
           <a href="#">Contact</a>
-      
         </div>
 
-    
-
         <div id="search-div">
-
           <form id="search-form">
-          
             <input type="text" id="search-home" placeholder="Localizar Pokémon...">
-          
             <input type="submit" id="search-button" value="Procurar">
-
           </form>
-
         </div>
 
         <div id="lists-div">
-        
           <select id = "filter-type-home" class="lists-home" name="filter-type">
-          
             <option value="0">Tipo de Filtro</option>
             <option value="name">Tipo de Pokémon</option>
             <option value="type">Vantagem Contra</option>
             <option value="type">Fraqueza Contra</option>
-      
-          </select>
-      
           </select>
         
           <select id="sort-home" class="lists-home" name="sort" placeholder="Selecione a Ordenação">
-          
             <option value="0">Ordene por</option>
             <option value="a-z">Ordem Alfabética Crescente</option>
             <option value="z-a">Ordem Alfabética Decrescente</option>
             <option value="">Ordem Numérica Crescente</option>
             <option value="">Ordem Numérica Decrescente</option>
-      
           </select>
-    
         </div>
-      
       </div>
-
-     
      
       <div id="inferior-container">
-
         <div id="mini-card-container"></div>     
-    
       </div>
-
     </main>
 
-    <footer>
-      
-      <div class="footer-container">
-
-        <p id="cp-text">© Copyright 2020 Pokédex Go. All rights reserved.</p>
-      
-      </div>
-    
-    </footer>
-    
-    <div id="card">
-      <div id="card-first-half">
-        <div id="pokedex-details">
-          <div id="blue-ball">
-            <div id="blue-ball-light"></div>
+    <section>
+      <div id="card">
+        <div id="card-first-half">
+          <div id="pokedex-details">
+            <div id="blue-ball">
+              <div id="blue-ball-light"></div>
+            </div>
+            <div id="small-balls">
+              <div id="red-ball"></div>
+              <div id="yellow-ball"></div>
+              <div id="green-ball"></div>  
+            </div>
           </div>
-          <div id="small-balls">
-            <div id="red-ball"></div>
-            <div id="yellow-ball"></div>
-            <div id="green-ball"></div>  
+          <div id="pokedex-content">
+            <div id="pokemon-infos-card" class="pokemon-infos">
+              <h1 id="pokemon-name"></h1>
+              <p id="pokemon-number"></p>
+            </div>
+            <figure id="card-pokemon-img"></figure>
+            <div class="pokemon-type"></div>
+            <div class="pokedex-btn-box">
+              <button id="view-more" class="pokedex-btn">Ver mais</button>
+              <button class="pokedex-btn close-btn">Fechar</button>
+            </div>
           </div>
         </div>
-        <div id="pokedex-content">
-          <div id="pokemon-infos-card" class="pokemon-infos">
-            <h1 id="pokemon-name"></h1>
-            <p id="pokemon-number"></p>
+        <div id="card-second-half">
+          <div id="card-pokemon-evolutions">
           </div>
-          <figure id="card-pokemon-img"></figure>
-          <div class="pokemon-type"></div>
-          <div class="pokedex-btn-box">
-            <button id="view-more" class="pokedex-btn">Ver mais</button>
+  
+          <div class="pokedex-titles-box pokemon-type">
+            <h1 class="pokedex-titles">Fraquezas</h1>
+          </div>
+  
+          <div class="pokedex-titles-box">
+            <h1 class="pokedex-titles">Evolução</h1>
+            <p id="candy-p"></p>
+          </div>
+          <div class="pokedex-btn-box btn-box-2-section">
+            <button id="view-less" class="pokedex-btn">Ver menos</button>
             <button class="pokedex-btn close-btn">Fechar</button>
           </div>
         </div>
       </div>
-      <div id="card-second-half">
-        <div id="card-pokemon-evolutions">
-        </div>
+    </section>
 
-        <div class="pokedex-titles-box pokemon-type">
-          <h1 class="pokedex-titles">Fraquezas</h1>
-        </div>
-
-        <div class="pokedex-titles-box">
-          <h1 class="pokedex-titles">Evolução</h1>
-          <p id="candy-p"></p>
-        </div>
-        <div class="pokedex-btn-box btn-box-2-section">
-          <button id="view-less" class="pokedex-btn">Ver menos</button>
-          <button class="pokedex-btn close-btn">Fechar</button>
-        </div>
+    <footer>
+      <div class="footer-container">
+        <p id="cp-text">© Copyright 2020 Pokédex Go. All rights reserved.</p>
       </div>
-    </div>
-
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
+    </footer>
   
+    <script src="main.js" type="module"></script>
   </body>
-
 </html>
