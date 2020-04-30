@@ -5,9 +5,9 @@ import myObject from './data/pokemon/pokemon.js';
 function createMiniCard(n) {
 	let newCard = document.createElement("DIV");
 	document.getElementById("mini-card-container").appendChild(newCard);
-    newCard.id = "div" + n;
+    newCard.id = "pokemon" + n;
     newCard.className  = "mini-card-div";
-    miniCardMouseEvents("div" + n);
+    miniCardMouseEvents("pokemon" + n);
     
 	let newImage = document.createElement("IMG");
 	newCard.appendChild(newImage);
