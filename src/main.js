@@ -149,5 +149,9 @@ function minicardMouseClick(e){
         pokemonWeaknessType.id = weaknessType.toLowerCase(weaknessType);
     }
 
-    document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candys";
+    if("candy_count" in selectedPokemon){
+        document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candys";
+    } else {
+        document.getElementById("candy-p").innerHTML = "Não é possível evoluir com candys";
+    }
 }
