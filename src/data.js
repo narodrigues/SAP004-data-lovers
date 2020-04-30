@@ -1,10 +1,17 @@
-// funções de exemplo
+const utils = {
 
-export const example = () => {
-  return 'example';
-};
+  computeStats: function(data){
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+},
 
+  filterData: function(data, condition){
+
+},
+
+  sortData: function(data, sortBy, sortOrder){
+
+},
+
+}
+
+export default utils;
