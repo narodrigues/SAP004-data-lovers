@@ -14,18 +14,16 @@ const utils = {
         data.sort(function(pokemonA, pokemonB){
           if(pokemonA[sortBy] > pokemonB[sortBy]){
             return 1;
-          } else {
-            return -1;
           }
+          return -1;
         });
         break;
       case "z-a":
         data.sort(function(pokemonA, pokemonB){
           if(pokemonA[sortBy] < pokemonB[sortBy]){
             return 1;
-          } else {
-            return -1;  
-          }
+          } 
+          return -1;  
         });
         break;
       case "1-151":
@@ -37,7 +35,7 @@ const utils = {
         data.sort(function(pokemonA, pokemonB){
           return pokemonB[sortBy] - pokemonA[sortBy];
        });
-       break;
+        break;
    }
   }
 }
