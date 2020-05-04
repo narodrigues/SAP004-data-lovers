@@ -2,28 +2,33 @@ import utils from './data.js';
 
 import myObject from './data/pokemon/pokemon.js';
 
-function createMiniCard(n) {
+const allPokemons = myObject.pokemon;
+
+function createMiniCard(pokemon) {
 	let newCard = document.createElement("DIV");
 	document.getElementById("mini-card-container").appendChild(newCard);
-    newCard.id = "pokemon" + n;
+    newCard.id = "pokemon" + pokemon.id;
     newCard.className  = "mini-card-div";
-    miniCardMouseEvents("pokemon" + n);
+    miniCardMouseEvents("pokemon" + pokemon.id);
     
 	let newImage = document.createElement("IMG");
 	newCard.appendChild(newImage);
-	newImage.className  = "mini-card-image";
-    newImage.src=myObject.pokemon[n].img;
+	newImage.className = "mini-card-image";
+    newImage.src = pokemon.img;
 
     let newText = document.createElement("TEXTAREA");
 	newCard.appendChild(newText);
 	newText.className  = "mini-card-text";
-	newText.innerHTML = myObject.pokemon[n].name;
+	newText.innerHTML = pokemon.name;
     newText.readOnly = "true";
 }
 
-for (let i = 0 ; i < 151; i++) {
-	createMiniCard(i);
-}
+function createCard(){
+    document.getElementById("mini-card-container").innerHTML = null;
+    allPokemons.forEach(createMiniCard);
+};
+
+createCard();
     
 function miniCardMouseEvents(selectedDiv){
     let selectedMiniCard = document.getElementById(selectedDiv);
@@ -47,6 +52,7 @@ let closeBtn = document.getElementsByClassName("close-btn")[0];
 let closeBtn2 = document.getElementsByClassName("close-btn")[1];
 let viewMore = document.getElementById("view-more");
 let viewLess = document.getElementById("view-less");
+let card = document.getElementById("card");
 
 closeBtn.addEventListener("click", close);
 closeBtn2.addEventListener("click", close);
@@ -77,12 +83,12 @@ function reset(){
 function minicardMouseClick(e){
     reset();
 
-    document.getElementById("card").style.display = "block";
+    card.style.display = "block";
     document.getElementById("card-first-half").style.display = "block";
     document.getElementById("card-second-half").style.display = "none";
 
     let selectedPokemonNum = e.currentTarget.id.slice(7);
-    let selectedPokemon = myObject.pokemon[Number(selectedPokemonNum)];
+    let selectedPokemon = myObject.pokemon[Number(selectedPokemonNum - 1)];
 
     document.getElementById("pokemon-name").innerHTML = selectedPokemon.name 
     document.getElementById("pokemon-number").innerHTML = selectedPokemon.num;
@@ -102,21 +108,20 @@ function minicardMouseClick(e){
     const evolutions = [];
 
     if("prev_evolution" in selectedPokemon){
-        selectedPokemon.prev_evolution.forEach(function (pe){
-            evolutions.push(pe.num);
+        selectedPokemon.prev_evolution.forEach(function(prevEvolution){
+            evolutions.push(prevEvolution.num);
         });
     }
 
     evolutions.push(selectedPokemon.num);
 
     if("next_evolution" in selectedPokemon){
-        selectedPokemon.next_evolution.forEach(function (ne){
-            evolutions.push(ne.num);
+        selectedPokemon.next_evolution.forEach(function(nextEvolution){
+            evolutions.push(nextEvolution.num);
         });
     }
 
     for(let i = 0; i < evolutions.length; i++){
-
         const evolutionObj = myObject.pokemon.find(function(pokemonObj){
             return pokemonObj.num == evolutions[i];
         });
@@ -154,4 +159,25 @@ function minicardMouseClick(e){
     } else {
         document.getElementById("candy-p").innerHTML = "Não é possível evoluir com candys";
     }
+}
+
+const sort = document.getElementById("sort-home");
+sort.addEventListener("change", sortBy);
+
+function sortBy(){
+    switch(sort.value){
+        case "a-z":
+            utils.sortData(allPokemons, "name", sort.value);
+            break;
+        case "z-a":
+            utils.sortData(allPokemons, "name", sort.value);
+            break;
+        case "1-151":
+            utils.sortData(allPokemons, "num", sort.value);
+            break;
+        case "151-1":
+            utils.sortData(allPokemons, "num", sort.value);
+            break;
+    }
+    createCard();
 }

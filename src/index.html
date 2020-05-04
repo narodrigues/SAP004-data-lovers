@@ -12,19 +12,18 @@
   <body>
     <header>
       <div id="container-logo">
-        <img id = "image-logo" src="../Imagens Finais/Go_Logo_final.png" alt="Logo Site">
+        <img id = "image-logo" src="../img/Go_Logo_final.png" alt="Logo Site">
       </div>
+      <nav id="menu-div" class="vertical-menu">
+        <a href="#" class="active">Home</a>
+        <a href="#">Data</a>
+        <a href="#">Pokémon Go Tips</a>
+        <a href="#">Contact</a>
+      </nav>
     </header> 
 
     <main>
       <div id ="superior-container">
-        <div id = "menu-div" class="vertical-menu">
-          <a href="#" class="active">Home</a>
-          <a href="#">Data</a>
-          <a href="#">Pokémon Go Tips</a>
-          <a href="#">Contact</a>
-        </div>
-
         <div id="search-div">
           <form id="search-form">
             <input type="text" id="search-home" placeholder="Localizar Pokémon...">
@@ -41,11 +40,11 @@
           </select>
         
           <select id="sort-home" class="lists-home" name="sort" placeholder="Selecione a Ordenação">
-            <option value="0">Ordene por</option>
+            <option value="none" selected disabled>Ordenar por</option>
             <option value="a-z">Ordem Alfabética Crescente</option>
             <option value="z-a">Ordem Alfabética Decrescente</option>
-            <option value="">Ordem Numérica Crescente</option>
-            <option value="">Ordem Numérica Decrescente</option>
+            <option value="1-151">Ordem Numérica Crescente</option>
+            <option value="151-1">Ordem Numérica Decrescente</option>
           </select>
         </div>
       </div>
@@ -55,48 +54,46 @@
       </div>
     </main>
 
-    <section>
-      <div id="card">
-        <div id="card-first-half">
-          <div id="pokedex-details">
-            <div id="blue-ball">
-              <div id="blue-ball-light"></div>
-            </div>
-            <div id="small-balls">
-              <div id="red-ball"></div>
-              <div id="yellow-ball"></div>
-              <div id="green-ball"></div>  
-            </div>
+    <section id="card">
+      <div id="card-first-half">
+        <div id="pokedex-details">
+          <div id="blue-ball">
+            <div id="blue-ball-light"></div>
           </div>
-          <div id="pokedex-content">
-            <div id="pokemon-infos-card" class="pokemon-infos">
-              <h1 id="pokemon-name"></h1>
-              <p id="pokemon-number"></p>
-            </div>
-            <figure id="card-pokemon-img"></figure>
-            <div class="pokemon-type"></div>
-            <div class="pokedex-btn-box">
-              <button id="view-more" class="pokedex-btn">Ver mais</button>
-              <button class="pokedex-btn close-btn">Fechar</button>
-            </div>
+          <div id="small-balls">
+            <div id="red-ball"></div>
+            <div id="yellow-ball"></div>
+            <div id="green-ball"></div>  
           </div>
         </div>
-        <div id="card-second-half">
-          <div id="card-pokemon-evolutions">
+        <div id="pokedex-content">
+          <div id="pokemon-infos-card" class="pokemon-infos">
+            <h1 id="pokemon-name"></h1>
+            <p id="pokemon-number"></p>
           </div>
-  
-          <div class="pokedex-titles-box pokemon-type">
-            <h1 class="pokedex-titles">Fraquezas</h1>
-          </div>
-  
-          <div class="pokedex-titles-box">
-            <h1 class="pokedex-titles">Evolução</h1>
-            <p id="candy-p"></p>
-          </div>
-          <div class="pokedex-btn-box btn-box-2-section">
-            <button id="view-less" class="pokedex-btn">Ver menos</button>
+          <figure id="card-pokemon-img"></figure>
+          <div class="pokemon-type"></div>
+          <div class="pokedex-btn-box">
+            <button id="view-more" class="pokedex-btn">Ver mais</button>
             <button class="pokedex-btn close-btn">Fechar</button>
           </div>
+        </div>
+      </div>
+      <div id="card-second-half">
+        <div id="card-pokemon-evolutions">
+        </div>
+
+        <div class="pokedex-titles-box pokemon-type">
+          <h1 class="pokedex-titles">Fraquezas</h1>
+        </div>
+
+        <div class="pokedex-titles-box">
+          <h1 class="pokedex-titles">Evolução</h1>
+          <p id="candy-p"></p>
+        </div>
+        <div class="pokedex-btn-box btn-box-2-section">
+          <button id="view-less" class="pokedex-btn">Ver menos</button>
+          <button class="pokedex-btn close-btn">Fechar</button>
         </div>
       </div>
     </section>

@@ -201,11 +201,12 @@ main {
     background: #bb1111;
     border-radius: 10px 0 0 10px;
     display: none;
-    height: 35em;
+    height: 36em;
     margin: auto;
     position: absolute;
     right: calc(50% - 171px);
     text-align: center;
+    top: 25%;
     width: calc(350px - 8px);
 }
 
@@ -264,6 +265,7 @@ main {
 
 #pokedex-content {
     border: 3px inset #9c0e0e;
+    height: 29.3em;
 }
 
 #pokemon-infos-card {
@@ -292,7 +294,7 @@ main {
 #card-second-half {
     border: 3px inset #9c0e0e;
     display: inline-block;
-    height: 32.5em;
+    height: 33.5em;
     margin: 1em;
     display: none;
 }
