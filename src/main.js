@@ -1,5 +1,4 @@
 import utils from './data.js';
-
 import myObject from './data/pokemon/pokemon.js';
 
 function createMiniCard(n) {
@@ -19,11 +18,19 @@ function createMiniCard(n) {
 	newText.className  = "mini-card-text";
 	newText.innerHTML = myObject.pokemon[n].name;
     newText.readOnly = "true";
+
+    let newNumber = document.createElement("DIV");
+	newCard.appendChild(newNumber);
+	newNumber.className  = "mini-card-number";
+	newNumber.innerHTML = myObject.pokemon[n].num;
 }
 
-for (let i = 0 ; i < 151; i++) {
-	createMiniCard(i);
+function createCard(){
+    for (let i = 0 ; i < 151; i++) {
+        createMiniCard(i);
+    }
 }
+createCard();
 
 function miniCardMouseEvents(selectedDiv){
     let selectedMiniCard = document.getElementById(selectedDiv);
@@ -34,18 +41,56 @@ function miniCardMouseEvents(selectedDiv){
 
 function minicardMouseOver() {
     let selectedMiniCard = event.currentTarget;
+    selectedMiniCard.style = "z-index: 200";
     selectedMiniCard.className = "mini-card-div-highlight";
 }
 
 function minicardMouseOut() {
     let selectedMiniCard = event.currentTarget;
+    selectedMiniCard.style = "z-index: 0";
     selectedMiniCard.className = "mini-card-div";
 }
+
+
+document.getElementById("filter-type").addEventListener("change", filters);
+document.getElementById("filter-value").addEventListener("change", filters);
+
+
+function filters(){
+
+    let filterType = document.getElementById("filter-type").value;
+    let filterValue = document.getElementById("filter-value").value;
+    
+
+    if (filterType != "default" && filterValue != "default"){
+        let filterArray = [];
+        document.getElementById("mini-card-container").innerHTML = null;
+        
+        filterArray = utils.filterData(myObject,filterType,filterValue);
+        for (let i = 0 ; i < filterArray.length; i++) {
+           
+            createMiniCard(filterArray[i]);
+        }
+    }
+
+}
+
+function clearFilter() {
+    document.getElementById("filter-value").value = "default";
+    document.getElementById("filter-type").value = "default";
+    document.getElementById("mini-card-container").innerHTML = null;
+    document.getElementById("search-home").innerHTML = null;
+    createCard();    
+}
+document.getElementById("clear-filter-button-home").addEventListener("click",clearFilter);
+
+
 
 let closeBtn = document.getElementsByClassName("close-btn")[0];
 let closeBtn2 = document.getElementsByClassName("close-btn")[1];
 let viewMore = document.getElementById("view-more");
 let viewLess = document.getElementById("view-less");
+let card = document.getElementById("card");
 
 closeBtn.addEventListener("click", close);
 closeBtn2.addEventListener("click", close);
@@ -76,9 +121,11 @@ function reset(){
 function minicardMouseClick(e){
     reset();
 
-    document.getElementById("card").style.display = "block";
+    card.style.display = "block";
+    // card.style = "z-index: 300";
     document.getElementById("card-first-half").style.display = "block";
     document.getElementById("card-second-half").style.display = "none";
+  
 
     let selectedPokemonNum = e.currentTarget.id.slice(7);
     let selectedPokemon = myObject.pokemon[Number(selectedPokemonNum)];
@@ -153,3 +200,4 @@ function minicardMouseClick(e){
         document.getElementById("candy-p").innerHTML = "Não é possível evoluir com candys";
     }
 }
+
