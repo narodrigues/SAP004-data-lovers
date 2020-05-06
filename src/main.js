@@ -26,7 +26,7 @@ function createMiniCard(pokemon) {
 function createCard(){
     document.getElementById("mini-card-container").innerHTML = null;
     allPokemons.forEach(createMiniCard);
-};
+}
 
 createCard();
     
