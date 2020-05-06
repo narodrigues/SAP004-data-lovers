@@ -14,12 +14,14 @@
       <div id="container-logo">
         <img id = "image-logo" src="../img/Go_Logo_final.png" alt="Logo Site">
       </div>
-      <nav id="menu-div" class="vertical-menu">
-        <a href="#" class="active">Home</a>
-        <a href="#">Data</a>
-        <a href="#">Pokémon Go Tips</a>
-        <a href="#">Contact</a>
-      </nav>
+      <div id="container-menu">
+        <nav class="horizontal-menu">
+          <a href="#" class="active">Home</a>
+          <a href="#">Data</a>
+          <a href="#">Pokémon Go Tips</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
     </header> 
 
     <main>
@@ -32,12 +34,34 @@
         </div>
 
         <div id="lists-div">
-          <select id = "filter-type-home" class="lists-home" name="filter-type">
-            <option value="0">Tipo de Filtro</option>
-            <option value="name">Tipo de Pokémon</option>
-            <option value="type">Vantagem Contra</option>
-            <option value="type">Fraqueza Contra</option>
+          <select id="filter-type" class="lists-home" name="filter-type">
+            <option value="default">Filter by</option>
+            <option value="all">All</option>
+            <option value="type">Type</option>
+            <option value="weaknesses">Weaknesses</option>
           </select>
+          
+          <select id ="filter-value" class="lists-home" name="filter1">
+            <option value="default">Filter Value</option>
+            <option value="Bug">Bug</option>
+            <option value="Dragon">Dragon</option>
+            <option value="Electric">Electric</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Fire">Fire</option>
+            <option value="Flying">Flying</option>
+            <option value="Ghost">Ghost</option>
+            <option value="Grama">Grama</option>
+            <option value="Grass">Grass</option>
+            <option value="Ground">Ground</option>
+            <option value="Ice">Ice</option>
+            <option value="Normal">Normal</option>
+            <option value="Poison">Poison</option>
+            <option value="Psychic">Psychic</option>
+            <option value="Rock">Rock</option>
+            <option value="Water">Water</option>        
+          </select>
+
+          <button id="clear-filter-button-home" type="button" name="clear-all" alt="Limpar" title="Limpar Filtros"></button>
         
           <select id="sort-home" class="lists-home" name="sort" placeholder="Selecione a Ordenação">
             <option value="none" selected disabled>Ordenar por</option>
@@ -67,10 +91,7 @@
           </div>
         </div>
         <div id="pokedex-content">
-          <div id="pokemon-infos-card" class="pokemon-infos">
-            <h1 id="pokemon-name"></h1>
-            <p id="pokemon-number"></p>
-          </div>
+          <div id="pokemon-infos-card" class="pokemon-infos"></div>
           <figure id="card-pokemon-img"></figure>
           <div class="pokemon-type"></div>
           <div class="pokedex-btn-box">
@@ -80,12 +101,9 @@
         </div>
       </div>
       <div id="card-second-half">
-        <div id="card-pokemon-evolutions">
-        </div>
+        <div id="card-pokemon-evolutions"></div>
 
-        <div class="pokedex-titles-box pokemon-type">
-          <h1 class="pokedex-titles">Fraquezas</h1>
-        </div>
+        <div class="pokedex-titles-box pokemon-type"></div>
 
         <div class="pokedex-titles-box">
           <h1 class="pokedex-titles">Evolução</h1>
