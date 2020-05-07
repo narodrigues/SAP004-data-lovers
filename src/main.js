@@ -190,7 +190,7 @@ function minicardMouseClick(e){
     let pokemonWeaknessTitle = document.createElement("h1");
     document.getElementsByClassName("pokemon-type")[1].appendChild(pokemonWeaknessTitle);
     pokemonWeaknessTitle.className = "pokedex-titles";
-    pokemonWeaknessTitle.innerHTML = "Fraquezas";
+    pokemonWeaknessTitle.innerHTML = "Weaknesses";
 
     for(let weaknessType of selectedPokemon.weaknesses){
         let pokemonWeaknessType = document.createElement("p");
@@ -202,7 +202,7 @@ function minicardMouseClick(e){
     if("candy_count" in selectedPokemon){
         document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candys";
     } else {
-        document.getElementById("candy-p").innerHTML = "Não é possível evoluir com candys";
+        document.getElementById("candy-p").innerHTML = "Can't evolve with candys";
     }
 }
 
