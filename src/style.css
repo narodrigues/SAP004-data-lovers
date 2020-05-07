@@ -1,5 +1,5 @@
 body { 
-    background: url("/img/background_image.png") bottom;
+    background: url("./img/background_image.png") bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -26,6 +26,7 @@ header {
     background-color: whitesmoke;
     font-size: 20px;
     width: 100%;
+    
 }
 
 #container-logo {
@@ -51,8 +52,8 @@ header {
 }
 
 .horizontal-menu a:hover {
-    font-size: 1em;
     color: black;
+    font-size: 1em;
     padding: 1em;
 }
 
@@ -145,9 +146,10 @@ header {
 
 #inferior-container {  
     margin-top: 1em;
-    float: left;
+    /*float: left;*/
     display: flex;
     justify-content: center;
+    width: 100%;
 }  
 
 #mini-card-container {
@@ -171,6 +173,7 @@ header {
     position: relative;
 	text-align: center;
     width: 100px;
+    position: relative;
 }
 
 .mini-card-div-highlight {
@@ -222,12 +225,12 @@ footer {
     background-color: whitesmoke;
     display: flex;
     float: left;
-    margin-top: 5em;
+    margin-top: 10em;
     width: 100%;
     height: 4em;
     justify-content: center;
+    bottom: 0;
 }
-
     
 #cp-text {
     color: grey;
@@ -242,11 +245,12 @@ footer {
     border-radius: 10px 0 0 10px;
     box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
     display: none;
-    height: 35em;
+    /*height: 35em;*/
     margin: auto;
     position: fixed;
     right: calc(50% - 171px);
     text-align: center;
+    top: 25%;
     width: calc(350px - 8px);
     z-index: 300;
 }

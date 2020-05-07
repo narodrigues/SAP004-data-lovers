@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Go</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" type="image/png" href="Favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="./img/Favicon.png"/>
   </head>
   
   <body>
     <header>
+      
       <div id="container-logo">
-        <img id = "image-logo" src="../img/Go_Logo_final.png" alt="Logo Site">
+        <img id = "image-logo" src="./img/Go_Logo_final.png" alt="Logo Site">
       </div>
       <div id="container-menu">
         <nav class="horizontal-menu">
@@ -28,8 +29,8 @@
       <div id ="superior-container">
         <div id="search-div">
           <form id="search-form">
-            <input type="text" id="search-home" placeholder="Localizar Pokémon...">
-            <input type="submit" id="search-button" value="Procurar">
+            <input type="text" id="search-home" placeholder="Search Pokémon...">
+            <input type="submit" id="search-button-home" value="" alt="Procurar" title="Search">
           </form>
         </div>
 
@@ -50,7 +51,6 @@
             <option value="Fire">Fire</option>
             <option value="Flying">Flying</option>
             <option value="Ghost">Ghost</option>
-            <option value="Grama">Grama</option>
             <option value="Grass">Grass</option>
             <option value="Ground">Ground</option>
             <option value="Ice">Ice</option>
@@ -63,7 +63,7 @@
 
           <button id="clear-filter-button-home" type="button" name="clear-all" alt="Limpar" title="Limpar Filtros"></button>
         
-          <select id="sort-home" class="lists-home" name="sort" placeholder="Selecione a Ordenação">
+          <select id="sort-home" class="lists-home" name="sort">
             <option value="none" selected disabled>Ordenar por</option>
             <option value="a-z">Ordem Alfabética Crescente</option>
             <option value="z-a">Ordem Alfabética Decrescente</option>
@@ -74,7 +74,7 @@
       </div>
      
       <div id="inferior-container">
-        <div id="mini-card-container"></div>     
+        <div id="mini-card-container"></div>
       </div>
     </main>
 
@@ -117,7 +117,7 @@
     </section>
 
     <footer>
-      <div class="footer-container">
+      <div id="footer-container-copyright">
         <p id="cp-text">© Copyright 2020 Pokédex Go. All rights reserved.</p>
       </div>
     </footer>

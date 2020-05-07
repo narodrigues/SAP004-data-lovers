@@ -1,9 +1,5 @@
 const utils = {
 
-  /*computeStats: function(data){
-
-  },*/
-
   filterData: function(myObject, filterType, filterValue){
     let filterArray = [];
     
@@ -28,7 +24,6 @@ const utils = {
       }
     }
     return filterArray;
-    
   },
 
   sortData: function(data, sortBy, sortOrder){

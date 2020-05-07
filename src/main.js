@@ -1,5 +1,4 @@
 import utils from './data.js';
-
 import myObject from './data/pokemon/pokemon.js';
 
 function createMiniCard(n) {
@@ -56,6 +55,7 @@ function minicardMouseOut() {
 document.getElementById("filter-type").addEventListener("change", filters);
 document.getElementById("filter-value").addEventListener("change", filters);
 
+
 function filters(){
 
     let filterType = document.getElementById("filter-type").value;
@@ -75,7 +75,18 @@ function filters(){
         document.getElementById("mini-card-container").innerHTML = null;
         createCard();
     }
+
 }
+
+function clearFilter() {
+    document.getElementById("filter-value").value = "default";
+    document.getElementById("filter-type").value = "default";
+    document.getElementById("mini-card-container").innerHTML = null;
+    document.getElementById("search-home").innerHTML = null;
+    createCard();    
+}
+
+document.getElementById("clear-filter-button-home").addEventListener("click",clearFilter);
 
 function changeDisplay(e){
     if(e.target.id == "view-more"){
@@ -111,6 +122,7 @@ function minicardMouseClick(e){
     card.style.display = "block";
     document.getElementById("card-first-half").style.display = "block";
     document.getElementById("card-second-half").style.display = "none";
+  
 
     let selectedPokemonNum = e.currentTarget.id.slice(7);
     let selectedPokemon = myObject.pokemon[selectedPokemonNum];
