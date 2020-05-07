@@ -1,5 +1,5 @@
 body { 
-    background: url("/Imagens Finais/background_image.png") bottom;
+    background: url("./img/background_image.png") bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -52,15 +52,14 @@ header {
 }
 
 .horizontal-menu a:hover {
-    font-size: 1em;
     color: black;
+    font-size: 1em;
     padding: 1em;
 }
 
 #superior-container { 
     display: flex;
     justify-content: space-between;
-    position: sticky;
 }
 
 #search-div {
@@ -95,7 +94,7 @@ header {
 
 /* Não consegui colocar o height do botão em "em", ele desloca e some quando eu aplico o ele*/
 #search-button-home {
-    background-image: url("/Imagens Finais/search_icon.png");
+    background-image: url("./img/search_icon.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -131,7 +130,7 @@ header {
 }
 
 #clear-filter-button-home {
-    background-image: url("/Imagens Finais/clear_filter.png");
+    background-image: url("/img/clear_filter.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -147,9 +146,10 @@ header {
 
 #inferior-container {  
     margin-top: 1em;
-    float: left;
+    /*float: left;*/
     display: flex;
     justify-content: center;
+    margin-bottom: 5em;
     width: 100%;
 }  
 
@@ -170,7 +170,8 @@ header {
     cursor: pointer;
     display: inline-block;
 	height: 140px;
-	margin: 2px;
+    margin: 2px;
+    position: relative;
 	text-align: center;
     width: 100px;
     position: relative;
@@ -223,14 +224,15 @@ header {
 
 footer {
     background-color: whitesmoke;
+    bottom: 0;
     display: flex;
     float: left;
-    margin-top: 10em;
-    width: 100%;
     height: 4em;
     justify-content: center;
-    /* position: fixed; */
-    bottom: 0;
+    /*margin-top: 10em;*/
+    position: fixed;
+    width: 100%;
+    z-index: 300;
 }
     
 #cp-text {
@@ -241,14 +243,17 @@ footer {
 }
 
 #card {
-    background: #bb1111;
-    border-radius: 10px 0 0 10px;
+    background: #b10d0d;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
     display: none;
     height: 35em;
     margin: auto;
-    position: absolute;
+    position: fixed;
     right: calc(50% - 171px);
     text-align: center;
+    top: 25%;
     width: calc(350px - 8px);
     z-index: 300;
 }
@@ -344,6 +349,7 @@ footer {
 #card-pokemon-evolutions {
     border-bottom: groove #d90d0d 3px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -388,7 +394,7 @@ footer {
 
 .pokedex-btn {
     background: inherit;
-    border: 3px groove #b06868;
+    border: 4px groove #b06868;
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
@@ -396,6 +402,16 @@ footer {
     height: 3em;
     text-shadow: -1px 1px #e78181;
     width: 8em;
+}
+
+.pokedex-btn:hover {
+    background: #2ecd1b;
+    border: 4px inset #52c944;
+}
+
+.close-btn:hover {
+    background: #ff0000;
+    border: 5px inset #b80b0b;
 }
 
 .pokemon-evolutions {

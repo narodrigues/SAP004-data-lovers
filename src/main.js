@@ -30,8 +30,9 @@ function createCard(){
         createMiniCard(i);
     }
 }
-createCard();
 
+createCard();
+    
 function miniCardMouseEvents(selectedDiv){
     let selectedMiniCard = document.getElementById(selectedDiv);
     selectedMiniCard.addEventListener("mouseover", minicardMouseOver);
@@ -50,7 +51,6 @@ function minicardMouseOut() {
     selectedMiniCard.style = "z-index: 0";
     selectedMiniCard.className = "mini-card-div";
 }
-
 
 document.getElementById("filter-type").addEventListener("change", filters);
 document.getElementById("filter-value").addEventListener("change", filters);
@@ -71,6 +71,9 @@ function filters(){
            
             createMiniCard(filterArray[i]);
         }
+    } else {
+        document.getElementById("mini-card-container").innerHTML = null;
+        createCard();
     }
 
 }
@@ -82,24 +85,8 @@ function clearFilter() {
     document.getElementById("search-home").innerHTML = null;
     createCard();    
 }
+
 document.getElementById("clear-filter-button-home").addEventListener("click",clearFilter);
-
-
-
-let closeBtn = document.getElementsByClassName("close-btn")[0];
-let closeBtn2 = document.getElementsByClassName("close-btn")[1];
-let viewMore = document.getElementById("view-more");
-let viewLess = document.getElementById("view-less");
-let card = document.getElementById("card");
-
-closeBtn.addEventListener("click", close);
-closeBtn2.addEventListener("click", close);
-viewMore.addEventListener("click", changeDisplay);
-viewLess.addEventListener("click", changeDisplay);
-
-function close(){
-    card.style.display = "none";
-}
 
 function changeDisplay(e){
     if(e.target.id == "view-more"){
@@ -111,27 +98,45 @@ function changeDisplay(e){
     }
 }
 
-function reset(){
-    document.getElementById("card-pokemon-img").innerHTML = null;
-    document.getElementsByClassName("pokemon-type")[0].innerHTML = null;
-    document.getElementById("card-pokemon-evolutions").innerHTML = null;
-    document.getElementsByClassName("pokemon-type")[1].innerHTML = null;
-}
-
 function minicardMouseClick(e){
-    reset();
+    (function reset(){
+        document.getElementById("card-pokemon-img").innerHTML = null;
+        document.getElementsByClassName("pokemon-type")[0].innerHTML = null;
+        document.getElementById("card-pokemon-evolutions").innerHTML = null;
+        document.getElementsByClassName("pokemon-type")[1].innerHTML = null;
+        document.getElementById("pokemon-infos-card").innerHTML = null;
+    })();
+
+    let card = document.getElementById("card");
+
+    function close(){
+        card.style.display = "none";
+    }
+
+    document.getElementById("inferior-container").addEventListener("click", close, true);
+    document.getElementsByClassName("close-btn")[0].addEventListener("click", close);
+    document.getElementsByClassName("close-btn")[1].addEventListener("click", close);
+    document.getElementById("view-more").addEventListener("click", changeDisplay);
+    document.getElementById("view-less").addEventListener("click", changeDisplay);
 
     card.style.display = "block";
-    // card.style = "z-index: 300";
     document.getElementById("card-first-half").style.display = "block";
     document.getElementById("card-second-half").style.display = "none";
   
 
     let selectedPokemonNum = e.currentTarget.id.slice(7);
-    let selectedPokemon = myObject.pokemon[Number(selectedPokemonNum)];
+    let selectedPokemon = myObject.pokemon[selectedPokemonNum];
+    //let selectedPokemon = allPokemons.find(selectedPokemon => selectedPokemon.id == selectedPokemonNum);
 
-    document.getElementById("pokemon-name").innerHTML = selectedPokemon.name 
-    document.getElementById("pokemon-number").innerHTML = selectedPokemon.num;
+    let pokemonName = document.createElement("h1");
+    pokemonName.id = "pokemon-name";
+    pokemonName.innerHTML = selectedPokemon.name;
+
+    let pokemonNum = document.createElement("p");
+    pokemonNum.id = "pokemon-number";
+    pokemonNum.innerHTML = selectedPokemon.num;
+
+    document.getElementById("pokemon-infos-card").append(pokemonName, pokemonNum);
 
     let newImg = document.createElement("img");
     document.getElementById("card-pokemon-img").appendChild(newImg);
@@ -148,16 +153,16 @@ function minicardMouseClick(e){
     const evolutions = [];
 
     if("prev_evolution" in selectedPokemon){
-        selectedPokemon.prev_evolution.forEach(function (pe){
-            evolutions.push(pe.num);
+        selectedPokemon.prev_evolution.forEach(function(prevEvolution){
+            evolutions.push(prevEvolution.num);
         });
     }
 
     evolutions.push(selectedPokemon.num);
 
     if("next_evolution" in selectedPokemon){
-        selectedPokemon.next_evolution.forEach(function (ne){
-            evolutions.push(ne.num);
+        selectedPokemon.next_evolution.forEach(function(nextEvolution){
+            evolutions.push(nextEvolution.num);
         });
     }
 
@@ -185,7 +190,7 @@ function minicardMouseClick(e){
     let pokemonWeaknessTitle = document.createElement("h1");
     document.getElementsByClassName("pokemon-type")[1].appendChild(pokemonWeaknessTitle);
     pokemonWeaknessTitle.className = "pokedex-titles";
-    pokemonWeaknessTitle.innerHTML = "Fraquezas";
+    pokemonWeaknessTitle.innerHTML = "Weaknesses";
 
     for(let weaknessType of selectedPokemon.weaknesses){
         let pokemonWeaknessType = document.createElement("p");
@@ -197,7 +202,27 @@ function minicardMouseClick(e){
     if("candy_count" in selectedPokemon){
         document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candys";
     } else {
-        document.getElementById("candy-p").innerHTML = "Não é possível evoluir com candys";
+        document.getElementById("candy-p").innerHTML = "Can't evolve with candys";
     }
 }
 
+const sort = document.getElementById("sort-home");
+sort.addEventListener("change", sortBy);
+
+function sortBy(){
+    switch(sort.value){
+        case "a-z":
+            utils.sortData(myObject.pokemon, "name", sort.value);
+            break;
+        case "z-a":
+            utils.sortData(myObject.pokemon, "name", sort.value);
+            break;
+        case "1-151":
+            utils.sortData(myObject.pokemon, "num", sort.value);
+            break;
+        case "151-1":
+            utils.sortData(myObject.pokemon, "num", sort.value);
+            break;
+    }
+    filters();
+}
