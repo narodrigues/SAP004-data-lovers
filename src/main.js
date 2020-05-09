@@ -1,6 +1,25 @@
 import utils from './data.js';
 import myObject from './data/pokemon/pokemon.js';
 
+let menu = document.querySelector("#hamburguer-menu");
+let topNav = document.querySelector("#links-menu");
+
+menu.addEventListener("click", function(){
+    if(topNav.style.display === "block") {
+        topNav.style.display = "none";
+    } else {
+        topNav.style.display = "block";
+    }
+});
+
+window.addEventListener("resize", function(){
+    if(window.innerWidth >= 800){
+        topNav.style.display = "block";
+    } else {
+        topNav.style.display = "none";
+    }
+});
+
 function createMiniCard(n) {
 	let newCard = document.createElement("DIV");
 	document.getElementById("mini-card-container").appendChild(newCard);
@@ -75,7 +94,6 @@ function filters(){
         document.getElementById("mini-card-container").innerHTML = null;
         createCard();
     }
-
 }
 
 function clearFilter() {
@@ -105,6 +123,7 @@ function minicardMouseClick(e){
         document.getElementById("card-pokemon-evolutions").innerHTML = null;
         document.getElementsByClassName("pokemon-type")[1].innerHTML = null;
         document.getElementById("pokemon-infos-card").innerHTML = null;
+        document.getElementById("candys").innerHTML = null;
     })();
 
     let card = document.getElementById("card");
@@ -113,17 +132,47 @@ function minicardMouseClick(e){
         card.style.display = "none";
     }
 
+    function pokedex(){
+        if(window.innerWidth >= 800){
+            /*middleDetail.style.display = "flex";*/
+            card.style.display = "flex";
+            document.getElementById("card-first-half").style.display = "block";
+            document.getElementById("card-second-half").style.display = "block";
+            document.getElementById("pokedex-middle-detail").style.display = "flex";
+            document.querySelector(".hinge").style.display = "block";
+            document.getElementById("view-more").style.display = "none";
+            /*document.getElementById("view-less").style.display = "none";    
+            document.getElementsByClassName("close-btn")[1].style.display = "none";  */  
+            document.querySelector(".btn-box-2-section").style.display = "none";
+        } else {
+            /*middleDetail.style.display = "none";*/
+            card.style.display = "block";
+            document.getElementById("card-first-half").style.display = "block";
+            document.getElementById("card-second-half").style.display = "none";
+            document.getElementById("pokedex-middle-detail").style.display = "none";
+            document.querySelector(".hinge").style.display = "none";
+            document.getElementById("view-more").style.display = "block";
+            /*document.getElementById("view-less").style.display = "block";    
+            document.getElementsByClassName("close-btn")[1].style.display = "block";    */
+            document.querySelector(".btn-box-2-section").style.display = "flex";
+        }
+    }
+    pokedex();
+
+    /*window.addEventListener("resize", function(){
+        pokedex();
+    });*/
+
     document.getElementById("inferior-container").addEventListener("click", close, true);
     document.getElementsByClassName("close-btn")[0].addEventListener("click", close);
     document.getElementsByClassName("close-btn")[1].addEventListener("click", close);
     document.getElementById("view-more").addEventListener("click", changeDisplay);
     document.getElementById("view-less").addEventListener("click", changeDisplay);
 
-    card.style.display = "block";
-    document.getElementById("card-first-half").style.display = "block";
-    document.getElementById("card-second-half").style.display = "none";
+    /*card.style.display = "block";*/
+    /*document.getElementById("card-first-half").style.display = "block";
+    document.getElementById("card-second-half").style.display = "none";*/
   
-
     let selectedPokemonNum = e.currentTarget.id.slice(7);
     let selectedPokemon = myObject.pokemon[selectedPokemonNum];
     //let selectedPokemon = allPokemons.find(selectedPokemon => selectedPokemon.id == selectedPokemonNum);
@@ -149,6 +198,11 @@ function minicardMouseClick(e){
         pokemonType.innerHTML = type;
         pokemonType.id = type.toLowerCase(type);
     }
+
+    let evolutionsTitle = document.createElement("h1");
+    document.getElementById("card-pokemon-evolutions").appendChild(evolutionsTitle);
+    evolutionsTitle.className = "pokedex-titles";
+    evolutionsTitle.innerHTML = "Evolutions";   
 
     const evolutions = [];
 
@@ -199,8 +253,17 @@ function minicardMouseClick(e){
         pokemonWeaknessType.id = weaknessType.toLowerCase(weaknessType);
     }
 
+    let candysTitle = document.createElement("h1");
+    candysTitle.className = "pokedex-titles";
+    candysTitle.innerHTML = "Candy";  
+
+    let candysP = document.createElement("p");
+    candysP.id = "candy-p";
+    document.getElementById("candys").append(candysTitle, candysP);
+
+
     if("candy_count" in selectedPokemon){
-        document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candys";
+        document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candies to evolve <img src=\'./img/GO_Rare_Candy.png\' width=\'40px\'>";
     } else {
         document.getElementById("candy-p").innerHTML = "Can't evolve with candys";
     }

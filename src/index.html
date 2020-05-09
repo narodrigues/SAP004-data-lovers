@@ -5,24 +5,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex Go</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" type="image/png" href="./img/Favicon.png"/>
   </head>
   
   <body>
     <header>
-      
       <div id="container-logo">
         <img id = "image-logo" src="./img/Go_Logo_final.png" alt="Logo Site">
       </div>
-      <div id="container-menu">
-        <nav class="horizontal-menu">
+      <nav id="container-menu" class="horizontal-menu">
+        <div id="hamburguer-menu">
+          <a href="#" class="hamburguer-menu">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+        <div id="links-menu">
           <a href="#" class="active">Home</a>
           <a href="#">Data</a>
           <a href="#">Pokémon Go Tips</a>
           <a href="#">Contact</a>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header> 
 
     <main>
@@ -100,15 +105,14 @@
           </div>
         </div>
       </div>
+      <div id="pokedex-middle-detail">
+        <div class="hinge"></div>
+        <div class="hinge"></div>
+      </div>
       <div id="card-second-half">
         <div id="card-pokemon-evolutions"></div>
-
         <div class="pokedex-titles-box pokemon-type"></div>
-
-        <div class="pokedex-titles-box">
-          <h1 class="pokedex-titles">Evolutions</h1>
-          <p id="candy-p"></p>
-        </div>
+        <div id="candys" class="pokedex-titles-box"></div>
         <div class="pokedex-btn-box btn-box-2-section">
           <button id="view-less" class="pokedex-btn">View less</button>
           <button class="pokedex-btn close-btn">Close</button>

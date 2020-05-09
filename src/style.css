@@ -1,9 +1,16 @@
+html {
+    height: 100%;
+}
+
 body { 
     background: url("./img/background_image.png") bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     margin: 0;
 }
 
@@ -25,8 +32,13 @@ header {
     justify-content: space-between;
     background-color: whitesmoke;
     font-size: 20px;
+    height: 5em;
+    position: absolute;
     width: 100%;
-    
+}
+
+option {
+    color: #5c5c5c;
 }
 
 #container-logo {
@@ -35,31 +47,84 @@ header {
 
 #image-logo {
     cursor: pointer;
+    padding: 0.5em 1em;
+    transition: all 0.5s;
     width: 15em;
 }
 
-.horizontal-menu { 
+#container-menu {
+    /* display: none; */
+    /* position: inherit; */
+    /* top: 2.7em; */
+    /*display: block;*/
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+}
+
+#hamburguer-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+/*#container-menu {
+    display: block;
+}*/
+
+/*.horizontal-menu { 
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    height: 90%;
+    height: 100%;
+}*/
+
+#links-menu {
+    position: relative;
+    top: 2em;
 }
 
 .horizontal-menu a {
+    align-self: center;
     color: grey;
     text-decoration: none;
     vertical-align: center;
     padding: 1em;
+    transition: all 0.5s;
 }
 
 .horizontal-menu a:hover {
-    color: black;
+    background: inherit;
+    color: red;
     font-size: 1em;
     padding: 1em;
 }
 
-#superior-container { 
+#superior-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 7em;
+}
+
+#search-home {
+    background: transparent;
+    border: 0px solid black;
+    border-radius: 10px;
+    color: white;
+    /*color:rgb(30, 60, 90);*/
+    display: flex;
+    font-size: 1.2em;
+    font-style: italic;
+    height: 1.5em;
+    outline: none;
+    padding-left: 1.1em;
+    padding-top: 0.2em;
+    text-shadow: 1px 1px 3px #000000;
+    width: 13em;
+}
+
+#search-home::placeholder {
+    color: #565656;
+    text-shadow: none;
 }
 
 #search-div {
@@ -67,7 +132,7 @@ header {
     border-radius: 15px;
     display: flex;
     height: 2.2em;
-    margin: 2em;
+    margin: 2em 12em;
 }
 
 #search-form {
@@ -77,43 +142,43 @@ header {
     outline: none;
 }
 
-#search-home {
-    background: transparent;
-    border-radius: 10px;
-    color:rgb(30, 60, 90);
-    display: flex;
-    font-size: 1.2em;
-    font-style: italic;
-    height: 1.5em;
-    outline: none;
-    width: 15em;
-    border: 0px solid black;
-    padding-left: 1.1em;
-    padding-top: 0.2em;
-}
-
-/* Não consegui colocar o height do botão em "em", ele desloca e some quando eu aplico o ele*/
 #search-button-home {
     background-image: url("./img/search_icon.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     background-color: transparent;
+    border: none;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     font-style: italic;
     height: 32px;
-    width: 5em;
     margin: auto;
-    border: none;
     outline: none;
+    position: absolute;
+    right: 9em;
+    width: 5em;
+    /*position: relative;
+    right: 0;
+    width: 5em;*/
 }
 
 #lists-div {
-    display: inline-block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* display: inline-block; */
+    padding: 1.5em 5em;
     padding: 1.5em;
 }
+
+/*#lists-div {
+    align-items: center;
+    display: flex;
+    /*display: inline-block;
+    padding: 1.5em 5em;
+}*/
 
 .lists-home {
     background-color: rgba(30, 80, 200, 0.25);
@@ -127,11 +192,14 @@ header {
     outline: none;
     width: 11em;
     padding-left: 0.5em;
+    color: white;
+    text-shadow: 1px 1px 3px #000000;
 }
 
 #clear-filter-button-home {
     background-image: url("/img/clear_filter.png");
-    background-size: contain;
+    /*background-size: contain;*/
+    background-size: 21px   ;
     background-repeat: no-repeat;
     background-position: center center;
     background-color: rgba(30, 80, 200, 0.25);
@@ -139,9 +207,10 @@ header {
     border-radius: 20px;
     cursor: pointer;
     height: 1.8em;
-    width: 3em;
-    outline: none;
     margin: 1em;
+    outline: none;
+    position: relative;
+    width: 3em;
 }
 
 #inferior-container {  
@@ -165,12 +234,12 @@ header {
 
 .mini-card-div {
     background-color: rgba(52, 34, 66, 0.5);
-    border: 2px solid rgb(32, 6, 167);
+    border: 2px solid rgba(33, 6, 167, 0.767);
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
 	height: 140px;
-    margin: 2px;
+    margin: 7px;
     position: relative;
 	text-align: center;
     width: 100px;
@@ -179,13 +248,13 @@ header {
 
 .mini-card-div-highlight {
 	background-color: rgba(107, 47, 167, 0.5);
-	border: 2px solid rgb(32, 6, 167);
+	border: 2px solid rgb(32, 6, 167, 0.767);
     border-radius: 5px;
     box-shadow: 1px 1px 40px cyan, 0 0 60px white, 0 0 40px darkblue;
     position: relative;
     display: inline-block;
 	height: 140px;
-	margin: 2px;
+	margin: 7px;
 	text-align: center;
     width: 100px;
 }
@@ -224,15 +293,18 @@ header {
 
 footer {
     background-color: whitesmoke;
-    bottom: 0;
-    display: flex;
+    margin-top: auto;
+    padding: 1em;
+    /*bottom: 0;
+    /*display: flex;
     float: left;
     height: 4em;
     justify-content: center;
+    margin-top: auto;
     /*margin-top: 10em;*/
-    position: fixed;
+    /*position: fixed;
     width: 100%;
-    z-index: 300;
+    z-index: 300;*/
 }
     
 #cp-text {
@@ -246,15 +318,20 @@ footer {
     background: #b10d0d;
     border: 3px solid black;
     border-radius: 10px;
+    bottom: 0;
     box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
+    /*display: flex;*/
     display: none;
-    height: 35em;
+    height: 40em;
+    left: 0;
     margin: auto;
     position: fixed;
-    right: calc(50% - 171px);
+    right: 0;
+    /*right: calc(50% - 171px);*/
     text-align: center;
-    top: 25%;
-    width: calc(350px - 8px);
+    top: 0;
+    width: 720px;   
+    /*width: 320px;*/
     z-index: 300;
 }
 
@@ -262,6 +339,7 @@ footer {
     border-radius: 10px 0 0 10px;
     height: 32.5em;
     padding: 0 1em;
+    width: 350px;
 }
 
 #pokedex-details {
@@ -335,15 +413,38 @@ footer {
     border-radius: 5px 5px 5px 30px;
     display: inline-block;
     margin: 0 auto;
-    padding: 20px 20px 35px;
+    padding: 25px 25px 40px;
+    /*padding: 20px 20px 35px;*/
+    width: 8em;
+}
+
+#pokedex-middle-detail {
+    background: linear-gradient(90deg, #891313 0, #cf1d1d 45%, #fd5555 65%, #c70505 95%);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+}
+
+.hinge {
+    background: linear-gradient(90deg, #460f0f 0, #891313 30%, #b31818 45%, #fd5555 65%, #b31818 95%);
+    border-bottom: 2px ridge #981b1b;
+    border-left-color: #5f1010;
+    border-top: 2px ridge #981b1b;
+    display: block;
+    height: 40px;
 }
 
 #card-second-half {
     border: 3px inset #9c0e0e;
     display: inline-block;
-    height: 32.5em;
-    margin: 1em;
     display: none;
+    height: 37.15em;
+    /*height: 32.5em;*/
+    margin: 1em;
+    width: 350px;
 }
 
 #card-pokemon-evolutions {
@@ -351,6 +452,11 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+#card-pokemon-evolutions h1{
+    /*height: 5em;*/
+    width: 100%;
 }
 
 #candy-p {
@@ -386,10 +492,13 @@ footer {
     border-radius: 7px;
     color: white;
     display: inline-block;
-    margin: 1em 0.5em;
+    margin: 2.5em 0.5em;
+    /*margin: 1em 0.5em;*/
     padding: 0.8em;
+    /*padding: 0.7em;*/
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     width: 6.5em;
+    /*width: 6em;*/
 }
 
 .pokedex-btn {
@@ -416,9 +525,13 @@ footer {
 
 .pokemon-evolutions {
     margin: 0;
+    /*margin: 0 0.5em;*/
 }
 
-.pokemon-evolutions-img {                       
+.pokemon-evolutions-img {     
+    /*margin: 0.5em 0;        
+    width: 4.5em;    */      
+    height: 5em;
     margin: 0.5em;
     width: 5em;
 }
@@ -426,6 +539,7 @@ footer {
 .pokemon-evolution-name {
     font-size: 16px;
     margin: 0.5em auto;
+    /*width: 4em;*/
     width: 4.5em;
 }
 
@@ -452,15 +566,18 @@ footer {
     border-top: groove #d90d0d 3px;
     display: flex;
     justify-content: space-around;
-    padding: 1.8em 0.5em 1.4em;
+    padding: 2em 0.5em;
+    /*padding: 1.48em 0.5em 1.48em;*/
+    /*padding: 1.8em 0.5em 1.4em;*/
 }
 
 .pokedex-btn-box.btn-box-2-section {
     bottom: 2em;
     box-sizing: border-box;
-    padding: 0.5em;
+    padding: 1em;
     position: absolute;
-    width: 304px;
+    width: 312px;
+    /*width: 304px;*/
 }
 
 
@@ -554,4 +671,168 @@ footer {
 #water {
     background: linear-gradient(157deg, #64a4ca 6%, #79b5d8 14%,#64a4ca 34%, #64a4ca 43%, #79b5d8 71%, #64a4ca 86%);
     border: 2px outset #becfda;
+}
+
+
+@media screen and (max-width: 800px){
+    /*body {
+        width: 100%;
+    }*/
+
+    header {
+        height: 3.5em;
+    }
+
+    #container-logo {
+        outline: none;
+        position: absolute;
+    }
+
+    #image-logo {
+        width: 9em;
+    }
+
+  
+
+    /*#container-menu {
+        display: none;
+        position: relative;
+        top: 2.7em;
+        width: 100%;
+        z-index: 1;
+    }*/
+
+    /*.horizontal-menu {
+        display: block;
+        height: 100%;
+        text-align: center;
+    }*/
+
+    #container-menu {
+        /* display: none; */
+        /* position: inherit; */
+        /* top: 2.7em; */
+        /*display: block;*/
+        /*font-family: Arial, Helvetica, sans-serif;
+        z-index: 1;*/
+        width: 100%;
+
+    }
+
+    #hamburguer-menu {
+        display: block;
+        /* display: none; */
+        /*position: absolute;
+        top: 0;
+        right: 0;*/
+    }
+
+    #links-menu {
+        display: none;
+        height: 100%;
+        text-align: center;
+        top: 3em;
+    }
+
+    .horizontal-menu a {
+        background: whitesmoke;
+        display: block;
+    }
+
+    #links-menu a:hover {
+        background: #f5c23b;
+        color: #192576;
+    }
+
+    .hamburguer-menu {
+        color: red;
+        /*visibility: hidden;*/
+    }
+
+    #superior-container {
+        margin-top: 5em;
+    }
+
+    #lists-div {
+        display: block;
+        margin: auto;
+        max-width: 75%;
+        padding: 0.5em 1em;
+        text-align: center;
+    }
+
+    #clear-filter-button-home {
+        position: absolute;
+    }
+
+    #search-div {
+        margin: 2em;
+    }
+
+    #search-button-home {
+        right: 1em;
+    }
+
+    #mini-card-container {
+        width: 90%;
+    }
+
+    /*.mini-card-div {
+        height: 155px;
+        width: 115px;
+    }*/
+
+
+
+
+
+    #card {
+        width: 350px;
+    }
+
+    /*#pokedex-middle-detail {
+        border-right: 2px solid black;
+        border-left: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25px;
+    }*/
+
+    #card-first-half {
+        width: auto;
+    }
+
+    #card-second-half {
+        width: auto;
+    }
+
+}
+
+@media screen and (min-width: 1280px){
+    #superior-container { 
+        flex-direction: row;
+        justify-content: space-evenly;
+        /*justify-content: space-between;*/
+        /*justify-content: space-around;*/
+        margin: 7em auto 0;
+        width: 95%;
+    }
+
+    #search-div {
+        margin: 2em;
+    }
+
+    #search-home {
+        width: 15em;
+    }
+
+    #search-button-home {
+        position: relative;
+        right: 0;
+    }
+
+    #lists-div {
+        padding: 1.5em;
+    }
 }
