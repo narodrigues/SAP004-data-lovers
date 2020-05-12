@@ -184,16 +184,16 @@ option {
     background-color: rgba(30, 80, 200, 0.25);
     border: none;
     border-radius: 20px;
-    color:rgb(30, 60, 90);
+    color: white;
+    /*color:rgb(30, 60, 90);*/
     font-size: 1.2em;
     font-style: italic;
     height: 1.4em;
     margin: 0.5em;
     outline: none;
-    width: 11em;
     padding-left: 0.5em;
-    color: white;
     text-shadow: 1px 1px 3px #000000;
+    width: 11em;
 }
 
 #clear-filter-button-home {
@@ -214,36 +214,34 @@ option {
 }
 
 #inferior-container {  
-    margin-top: 1em;
     /*float: left;*/
     display: flex;
     justify-content: center;
     margin-bottom: 5em;
+    margin-top: 1em;
     width: 100%;
 }  
 
 #mini-card-container {
-    text-align: center;
     border-radius: 20px;
+    float: left;
+    justify-content: center;
     outline: none;
     text-align: center;
     width: 75%;
-    justify-content: center;
-    float: left;
 }
 
 .mini-card-div {
-    background-color: rgba(52, 34, 66, 0.5);
-    border: 2px solid rgba(33, 6, 167, 0.767);
+    background-color: rgba(53, 35, 67, 0.5);
+    border: 2px solid rgba(33, 6, 167, 0.55);
     border-radius: 5px;
-    cursor: pointer;
     display: inline-block;
 	height: 140px;
     margin: 7px;
+    padding: 0.5em;
     position: relative;
 	text-align: center;
     width: 100px;
-    position: relative;
 }
 
 .mini-card-div-highlight {
@@ -251,10 +249,12 @@ option {
 	border: 2px solid rgb(32, 6, 167, 0.767);
     border-radius: 5px;
     box-shadow: 1px 1px 40px cyan, 0 0 60px white, 0 0 40px darkblue;
-    position: relative;
+    cursor: pointer;
     display: inline-block;
 	height: 140px;
-	margin: 7px;
+    margin: 7px;
+    padding: 0.5em;
+    position: relative;
 	text-align: center;
     width: 100px;
 }
@@ -276,6 +276,7 @@ option {
     border: 0px solid black;
     color: whitesmoke;
     font-size: 1em;
+    margin-top: 1em;
     outline: none;
 	resize: none;
 	text-align: center;
@@ -284,11 +285,11 @@ option {
 
 .mini-card-number {
     background-color: rgba(124, 73, 176, 0.65);
-    position: absolute;
-    top: 0.4em;
-    right: 0.4em;
-    font-size: 1em;
     color: whitesmoke;
+    font-size: 1em;
+    position: absolute;
+    right: 0.4em;
+    top: 0.4em;
 }
 
 footer {
@@ -415,13 +416,14 @@ footer {
     margin: 0 auto;
     padding: 25px 25px 40px;
     /*padding: 20px 20px 35px;*/
-    width: 8em;
+    /*width: 8em;*/
 }
 
 #pokedex-middle-detail {
-    background: linear-gradient(90deg, #891313 0, #cf1d1d 45%, #fd5555 65%, #c70505 95%);
+    background: linear-gradient(90deg, #770707 0, #c70707 40%, #ff6f6f 60%, #c70707 90%);
     border-left: 2px solid black;
     border-right: 2px solid black;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.45);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -429,7 +431,7 @@ footer {
 }
 
 .hinge {
-    background: linear-gradient(90deg, #460f0f 0, #891313 30%, #b31818 45%, #fd5555 65%, #b31818 95%);
+    background: linear-gradient(90deg, #3d0808 0, #a00707 40%, #ff6f6f 60%, #a00707 90%);
     border-bottom: 2px ridge #981b1b;
     border-left-color: #5f1010;
     border-top: 2px ridge #981b1b;

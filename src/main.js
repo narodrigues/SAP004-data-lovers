@@ -263,7 +263,7 @@ function minicardMouseClick(e){
 
 
     if("candy_count" in selectedPokemon){
-        document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candies to evolve <img src=\'./img/GO_Rare_Candy.png\' width=\'40px\'>";
+        document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candies to evolve <img src='./img/GO_Rare_Candy.png' width='40px'>";
     } else {
         document.getElementById("candy-p").innerHTML = "Can't evolve with candys";
     }
@@ -289,3 +289,5 @@ function sortBy(){
     }
     filters();
 }
+
+utils.computeStats(myObject.pokemon);

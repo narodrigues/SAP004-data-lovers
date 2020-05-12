@@ -6,21 +6,11 @@ describe('utils', () => {
     expect(typeof utils).toBe('object');
   });
 
-  /*describe('utils.computeStats');
-  describe('utils.filterData');*/
-
   describe('utils.sortData', () => {
 
     it('should be a function', () => {
     expect(typeof utils.sortData).toBe('function');
     });
-
-    /*it('should throw TypeError when invoked with wrong argument types', () => {
-      expect(() => utils.sortData()).toThrow(TypeError);
-      expect(() => utils.sortData(0)).toThrow(TypeError);
-      expect(() => utils.sortData(0, 0, 0)).toThrow(TypeError);
-      expect(() => utils.sortData({}, [], null)).toThrow(TypeError);
-    });*/
 
     it('should return "Abra" to "Zubat" with sort order "a-z"', () => {
       expect(utils.sortData(myObject.pokemon, 'name', 'a-z')[0].name).toBe('Abra');
@@ -36,6 +26,29 @@ describe('utils', () => {
 
     it('should return "Mew" to "Bulbasaur" with sort order "151-1"', () => {
       expect(utils.sortData(myObject.pokemon, 'num', '151-1')[0].name).toBe('Mew');
+    });
+  });
+
+  describe('utils.computeStats', () => {
+
+    it('should be a function', () => {
+    expect(typeof utils.computeStats).toBe('function');
+    });
+
+    it('should return "3" with "Dragon" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Dragon"]).toBe(3);
+    });
+
+    it('should return "14" with "Grass" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Grass"]).toBe(14);
+    });
+
+    it('should return "24" with "Normal" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Normal"]).toBe(24);
+    });
+
+    it('should return "32" with "Water" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Water"]).toBe(32);
     });
   });
 });

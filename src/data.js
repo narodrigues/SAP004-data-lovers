@@ -51,6 +51,22 @@ const utils = {
           return pokemonB[sortBy] - pokemonA[sortBy];
         });
     }
+  },
+
+  computeStats: function(data){
+    let types = {};
+
+    for(let x = 0; x < data.length; x++){
+      data[x].type.forEach(function(elem){
+        /*console.log(elem);*/
+        if(!(elem in types)){
+          types[elem] = 1;
+        } else {
+          types[elem] += 1;
+        }
+      });
+    }
+    return types;
   }
 }
 export default utils;
