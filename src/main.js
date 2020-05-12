@@ -289,5 +289,3 @@ function sortBy(){
     }
     filters();
 }
-
-utils.computeStats(myObject.pokemon);

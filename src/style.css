@@ -99,6 +99,43 @@ option {
     padding: 1em;
 }
 
+
+/*Início da pag statistics*/
+
+main#superior-container {
+    background: #ffffff6e;
+    border-radius: 1em;
+    margin: 10em auto 5em;
+    padding: 2em;
+    width: 70%;
+}
+
+section#statistics-container {
+    padding: 2em 3em;
+}
+
+.maxContDiv {
+    border: 2px solid black;
+    box-sizing: border-box;
+    height: 2.5em;
+    width: 100%;
+}
+
+.percentage {
+    background: red;
+    height: 100%;
+    width: 14%;
+}
+
+.percentage p {
+    font-size: 20px;
+    margin: auto;
+    padding: 7px;
+}
+
+/*fim*/
+
+
 #superior-container {
     display: flex;
     flex-direction: column;
@@ -821,6 +858,10 @@ footer {
         /*justify-content: space-around;*/
         margin: 7em auto 0;
         width: 95%;
+    }
+
+    #superior-container.statistics-main {
+        flex-direction: column;
     }
 
     #search-div {
