@@ -58,7 +58,6 @@ const utils = {
 
     for(let x = 0; x < data.length; x++){
       data[x].type.forEach(function(elem){
-        /*console.log(elem);*/
         if(!(elem in types)){
           types[elem] = 1;
         } else {
