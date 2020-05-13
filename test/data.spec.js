@@ -6,6 +6,38 @@ describe('utils', () => {
     expect(typeof utils).toBe('object');
   });
 
+  describe('utils.filterData', () => {
+    
+    it('should be a function', () => {
+      expect(typeof utils.filterData).toBe('function')
+    });
+
+    it('should return "3" with filter-type "Dragon"', () => {
+      expect(utils.filterData(myObject, 'type', 'Dragon').length).toBe(3);
+    });
+
+    it('should return "151" with filter-type "All"', () => {
+      expect(utils.filterData(myObject, 'all','').length).toBe(151);
+    });
+
+    it('should return "28" with filter-type "Fire"', () => {
+      expect(utils.filterData(myObject, 'weaknesses', 'Fire').length).toBe(28);
+    });
+
+  });
+
+  describe('utils.searchBar', () => {
+
+    it('should return "1" with "bulba"', () => {
+      expect(utils.searchBar(myObject, 'bulba').length).toBe(1);
+    });
+    
+    it('should return "1" with "char"', () => {
+      expect(utils.searchBar(myObject, 'char').length).toBe(3);
+    });
+
+  });
+
   describe('utils.sortData', () => {
 
     it('should be a function', () => {

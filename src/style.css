@@ -118,10 +118,10 @@ option {
     display: flex;
     height: 2.2em;
     margin: 2em 12em;
+    padding-right: 0.5em;
 }
 
 #search-form {
-    background: transparent;
     border-radius: 15px;
     display: flex;
     outline: none;
@@ -131,19 +131,19 @@ option {
     background-image: url("./img/search_icon.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center right;
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     font-style: italic;
-    height: 32px;
+    height: 30px;
     margin: auto;
     outline: none;
     position: absolute;
     right: 9em;
-    width: 5em;
+    width: 3em;  
 }
 
 #lists-div {
@@ -255,7 +255,7 @@ option {
     letter-spacing: 1px;
     margin-top: 0.5em;
     outline: none;
-	resize: none;
+	  resize: none;
     text-align: center;
     text-shadow: 1px 1px 2px black;
     text-transform: uppercase;
@@ -277,7 +277,6 @@ option {
 footer {
     background-color: whitesmoke;
     margin-top: auto;
-    padding: 1em;
 }
     
 #cp-text {
@@ -302,6 +301,10 @@ footer {
     top: 0;
     width: 720px;   
     z-index: 300;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #card-first-half {
