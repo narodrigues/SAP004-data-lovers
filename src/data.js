@@ -1,6 +1,6 @@
 const utils = {
 
-  filterData: function(myObject, filterType, filterValue){
+  filterData: function(myObject, filterType, filterValue) {
     let filterArray = [];
     
     for (let i = 0 ; i < myObject.pokemon.length; i++) {
@@ -25,6 +25,19 @@ const utils = {
     }
     return filterArray;
   },
+
+  searchBar: function (myObject, searchString) {
+    let indexArray = [];
+
+    for (let i = 0; i < 151; i++) {
+
+      if ((myObject.pokemon[i].name).toLowerCase().includes(searchString.toLowerCase())) {
+        indexArray.push(i);
+      }
+    }
+    return indexArray;
+  },
+
 
   sortData: function(data, sortBy, sortOrder){
     switch(sortOrder){
@@ -52,5 +65,7 @@ const utils = {
         });
     }
   }
+
 }
+
 export default utils;

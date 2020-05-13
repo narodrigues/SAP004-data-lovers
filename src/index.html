@@ -19,8 +19,8 @@
         <nav class="horizontal-menu">
           <a href="#" class="active">Home</a>
           <a href="#">Data</a>
+          <a href="#">Charts</a>
           <a href="#">Pokémon Go Tips</a>
-          <a href="#">Contact</a>
         </nav>
       </div>
     </header> 
@@ -28,10 +28,8 @@
     <main>
       <div id ="superior-container">
         <div id="search-div">
-          <form id="search-form">
-            <input type="text" id="search-home" placeholder="Search Pokémon...">
-            <input type="submit" id="search-button-home" value="" alt="Procurar" title="Search">
-          </form>
+            <input type="text" id="search-home" placeholder="Search Pokémon..." onkeydown="createSearchedCards()">
+            <input type="button" id="search-button-home" value="" alt="Search" title="Search">
         </div>
 
         <div id="lists-div">
@@ -65,10 +63,10 @@
         
           <select id="sort-home" class="lists-home" name="sort">
             <option value="none" selected disabled>Sort by</option>
-            <option value="a-z">Ascending alphabetical</option>
-            <option value="z-a">Descending alphabetical</option>
-            <option value="1-151">Ascending numerical order</option>
-            <option value="151-1">Descending numerical order</option>
+            <option value="a-z">Ascending Alphabetical</option>
+            <option value="z-a">Descending Alphabetical</option>
+            <option value="1-151">Ascending Numerical Order</option>
+            <option value="151-1">Descending Numerical Order</option>
           </select>
         </div>
       </div>
@@ -116,11 +114,11 @@
       </div>
     </section>
 
-    <footer>
+    <!-- <footer>  
       <div id="footer-container-copyright">
         <p id="cp-text">© Copyright 2020 Pokédex Go. All rights reserved.</p>
       </div>
-    </footer>
+    </footer>-->
   
     <script src="main.js" type="module"></script>
   </body>

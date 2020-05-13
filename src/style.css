@@ -25,8 +25,7 @@ header {
     justify-content: space-between;
     background-color: whitesmoke;
     font-size: 20px;
-    width: 100%;
-    
+    width: 100%; 
 }
 
 #container-logo {
@@ -68,13 +67,7 @@ header {
     display: flex;
     height: 2.2em;
     margin: 2em;
-}
-
-#search-form {
-    background: transparent;
-    border-radius: 15px;
-    display: flex;
-    outline: none;
+    padding-right: 0.5em;
 }
 
 #search-home {
@@ -92,22 +85,21 @@ header {
     padding-top: 0.2em;
 }
 
-/* Não consegui colocar o height do botão em "em", ele desloca e some quando eu aplico o ele*/
 #search-button-home {
     background-image: url("./img/search_icon.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center right;
     background-color: transparent;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     font-style: italic;
-    height: 32px;
-    width: 5em;
+    height: 30px;
+    width: 3em;
     margin: auto;
     border: none;
-    outline: none;
+    outline: none;    
 }
 
 #lists-div {
@@ -146,7 +138,6 @@ header {
 
 #inferior-container {  
     margin-top: 1em;
-    /*float: left;*/
     display: flex;
     justify-content: center;
     margin-bottom: 5em;
@@ -229,7 +220,6 @@ footer {
     float: left;
     height: 4em;
     justify-content: center;
-    /*margin-top: 10em;*/
     position: fixed;
     width: 100%;
     z-index: 300;
@@ -239,7 +229,6 @@ footer {
     color: grey;
     font-size: 15px;
     text-align: center;
-
 }
 
 #card {
@@ -256,6 +245,10 @@ footer {
     top: 25%;
     width: calc(350px - 8px);
     z-index: 300;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #card-first-half {

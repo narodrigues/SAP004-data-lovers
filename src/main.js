@@ -83,10 +83,31 @@ function clearFilter() {
     document.getElementById("filter-type").value = "default";
     document.getElementById("mini-card-container").innerHTML = null;
     document.getElementById("search-home").innerHTML = null;
-    createCard();    
+    createCard();
 }
 
 document.getElementById("clear-filter-button-home").addEventListener("click",clearFilter);
+
+
+function createSearchedCards () {
+    document.getElementById("mini-card-container").innerHTML = null;
+    let searchValue = document.getElementById("search-home").value;
+    let indexArray =  utils.searchBar(myObject, searchValue);
+    
+    for (let i = 0; i < indexArray.length; i++) {
+        createMiniCard(indexArray[i]);
+    }
+}
+
+document.getElementById("search-button-home").addEventListener("click",createSearchedCards);
+
+
+document.getElementById("search-home").addEventListener("keydown", function(event) {
+    if (event.keyCode == 13) {
+        createSearchedCards ();
+    }
+});
+
 
 function changeDisplay(e){
     if(e.target.id == "view-more"){
