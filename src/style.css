@@ -1,9 +1,17 @@
+html {
+    font-family: sans-serif, Arial, Helvetica;
+    height: 100%;
+}
+
 body { 
     background: url("./img/background_image.png") bottom;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     margin: 0;
 }
 
@@ -25,7 +33,13 @@ header {
     justify-content: space-between;
     background-color: whitesmoke;
     font-size: 20px;
-    width: 100%; 
+    height: 5em;
+    position: absolute;
+    width: 100%;
+}
+
+option {
+    color: #5c5c5c;
 }
 
 #container-logo {
@@ -34,31 +48,68 @@ header {
 
 #image-logo {
     cursor: pointer;
+    padding: 0.5em 1em;
+    transition: all 0.5s;
     width: 15em;
 }
 
-.horizontal-menu { 
-    display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 90%;
+#container-menu {
+    z-index: 1;
+}
+
+#hamburguer-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+#links-menu {
+    position: relative;
+    top: 2em;
 }
 
 .horizontal-menu a {
-    color: grey;
+    align-self: center;
+    color: #585858;
     text-decoration: none;
     vertical-align: center;
     padding: 1em;
+    transition: all 0.5s;
 }
 
 .horizontal-menu a:hover {
-    color: black;
+    background: inherit;
+    color: red;
     font-size: 1em;
     padding: 1em;
 }
 
-#superior-container { 
+#superior-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 7em;
+}
+
+#search-home {
+    background: transparent;
+    border: 0px solid black;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    font-size: 1.2em;
+    font-style: italic;
+    height: 1.5em;
+    outline: none;
+    padding-left: 1.1em;
+    padding-top: 0.2em;
+    text-shadow: 1px 1px 3px #000000;
+    width: 13em;
+}
+
+#search-home::placeholder {
+    color: #565656;
+    text-shadow: none;
 }
 
 #search-div {
@@ -66,23 +117,14 @@ header {
     border-radius: 15px;
     display: flex;
     height: 2.2em;
-    margin: 2em;
+    margin: 2em 12em;
     padding-right: 0.5em;
 }
 
-#search-home {
-    background: transparent;
-    border-radius: 10px;
-    color:rgb(30, 60, 90);
+#search-form {
+    border-radius: 15px;
     display: flex;
-    font-size: 1.2em;
-    font-style: italic;
-    height: 1.5em;
     outline: none;
-    width: 15em;
-    border: 0px solid black;
-    padding-left: 1.1em;
-    padding-top: 0.2em;
 }
 
 #search-button-home {
@@ -91,19 +133,24 @@ header {
     background-repeat: no-repeat;
     background-position: center right;
     background-color: transparent;
+    border: none;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     font-style: italic;
     height: 30px;
-    width: 3em;
     margin: auto;
-    border: none;
-    outline: none;    
+    outline: none;
+    position: absolute;
+    right: 9em;
+    width: 3em;  
 }
 
 #lists-div {
-    display: inline-block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 1.5em 5em;
     padding: 1.5em;
 }
 
@@ -111,19 +158,20 @@ header {
     background-color: rgba(30, 80, 200, 0.25);
     border: none;
     border-radius: 20px;
-    color:rgb(30, 60, 90);
+    color: white;
     font-size: 1.2em;
     font-style: italic;
     height: 1.4em;
     margin: 0.5em;
     outline: none;
-    width: 11em;
     padding-left: 0.5em;
+    text-shadow: 1px 1px 3px #000000;
+    width: 11em;
 }
 
 #clear-filter-button-home {
     background-image: url("/img/clear_filter.png");
-    background-size: contain;
+    background-size: 21px   ;
     background-repeat: no-repeat;
     background-position: center center;
     background-color: rgba(30, 80, 200, 0.25);
@@ -131,54 +179,57 @@ header {
     border-radius: 20px;
     cursor: pointer;
     height: 1.8em;
-    width: 3em;
-    outline: none;
     margin: 1em;
+    outline: none;
+    position: relative;
+    width: 3em;
 }
 
 #inferior-container {  
-    margin-top: 1em;
     display: flex;
     justify-content: center;
     margin-bottom: 5em;
+    margin-top: 1em;
     width: 100%;
 }  
 
 #mini-card-container {
-    text-align: center;
     border-radius: 20px;
+    float: left;
+    justify-content: center;
     outline: none;
     text-align: center;
     width: 75%;
-    justify-content: center;
-    float: left;
 }
 
 .mini-card-div {
-    background-color: rgba(52, 34, 66, 0.5);
-    border: 2px solid rgb(32, 6, 167);
+    background-color: rgba(20, 23, 73, 0.43);
+    border: 2px solid rgba(3, 72, 158, 0.55);
     border-radius: 5px;
-    cursor: pointer;
+    box-sizing: border-box;
     display: inline-block;
-	height: 140px;
-    margin: 2px;
+	height: 170px;
+    margin: 6px;
+    padding: 0.5em;
     position: relative;
-	text-align: center;
-    width: 100px;
-    position: relative;
+    transition: all 0.3s;
+    width: 130px;
 }
 
 .mini-card-div-highlight {
-	background-color: rgba(107, 47, 167, 0.5);
-	border: 2px solid rgb(32, 6, 167);
+    background-color: rgba(0, 87, 255, 0.54);
+    border: 2px solid rgba(37, 107, 180, 0.55);
     border-radius: 5px;
     box-shadow: 1px 1px 40px cyan, 0 0 60px white, 0 0 40px darkblue;
-    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
     display: inline-block;
-	height: 140px;
-	margin: 2px;
-	text-align: center;
-    width: 100px;
+	height: 170px;
+    margin: 6px;
+    padding: 0.5em;
+    position: relative;
+    width: 130px;
+    transition: all 0.3s;
 }
 
 .mini-card-image {
@@ -197,32 +248,35 @@ header {
 	background-color: transparent;
     border: 0px solid black;
     color: whitesmoke;
-    font-size: 1em;
+    font-family: inherit;
+    font-stretch: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 0.5em;
     outline: none;
-	resize: none;
-	text-align: center;
-    width: 95%;
+	  resize: none;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    text-transform: uppercase;
+    width: 100%;
 }
 
 .mini-card-number {
-    background-color: rgba(124, 73, 176, 0.65);
-    position: absolute;
-    top: 0.4em;
-    right: 0.4em;
-    font-size: 1em;
+    background-color: rgba(35, 71, 141, 0.51);
+    border-radius: 1em;
     color: whitesmoke;
+    font-size: 1em;
+    padding-top: 2px;
+    position: absolute;
+    right: 0.4em;
+    top: 0.3em;
+    width: 2.5em;
 }
 
 footer {
     background-color: whitesmoke;
-    bottom: 0;
-    display: flex;
-    float: left;
-    height: 4em;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-    z-index: 300;
+    margin-top: auto;
 }
     
 #cp-text {
@@ -235,15 +289,17 @@ footer {
     background: #b10d0d;
     border: 3px solid black;
     border-radius: 10px;
+    bottom: 0;
     box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
     display: none;
-    height: 35em;
+    height: 40em;
+    left: 0;
     margin: auto;
     position: fixed;
-    right: calc(50% - 171px);
+    right: 0;
     text-align: center;
-    top: 25%;
-    width: calc(350px - 8px);
+    top: 0;
+    width: 720px;   
     z-index: 300;
     top: 0;
     left: 0;
@@ -255,6 +311,7 @@ footer {
     border-radius: 10px 0 0 10px;
     height: 32.5em;
     padding: 0 1em;
+    width: 350px;
 }
 
 #pokedex-details {
@@ -328,15 +385,36 @@ footer {
     border-radius: 5px 5px 5px 30px;
     display: inline-block;
     margin: 0 auto;
-    padding: 20px 20px 35px;
+    padding: 25px 25px 40px;
+}
+
+#pokedex-middle-detail {
+    background: linear-gradient(90deg, #770707 0, #c70707 40%, #ff6f6f 60%, #c70707 90%);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+}
+
+.hinge {
+    background: linear-gradient(90deg, #3d0808 0, #a00707 40%, #ff6f6f 60%, #a00707 90%);
+    border-bottom: 2px ridge #981b1b;
+    border-left-color: #5f1010;
+    border-top: 2px ridge #981b1b;
+    display: block;
+    height: 40px;
 }
 
 #card-second-half {
     border: 3px inset #9c0e0e;
     display: inline-block;
-    height: 32.5em;
-    margin: 1em;
     display: none;
+    height: 37.15em;
+    margin: 1em;
+    width: 350px;
 }
 
 #card-pokemon-evolutions {
@@ -344,6 +422,10 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+#card-pokemon-evolutions h1{
+    width: 100%;
 }
 
 #candy-p {
@@ -362,7 +444,7 @@ footer {
     border-radius: 3px;
     border: 2px inset #b3bfa6;
     font-size: 21px;
-    margin: 1em auto;
+    margin: 1.5em auto 1.7em;
     padding: 5px;
     width: 85%;
 }
@@ -379,7 +461,7 @@ footer {
     border-radius: 7px;
     color: white;
     display: inline-block;
-    margin: 1em 0.5em;
+    margin: 2.5em 0.5em;
     padding: 0.8em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     width: 6.5em;
@@ -411,7 +493,8 @@ footer {
     margin: 0;
 }
 
-.pokemon-evolutions-img {                       
+.pokemon-evolutions-img {     
+    height: 5em;
     margin: 0.5em;
     width: 5em;
 }
@@ -419,7 +502,6 @@ footer {
 .pokemon-evolution-name {
     font-size: 16px;
     margin: 0.5em auto;
-    width: 4.5em;
 }
 
 .pokedex-titles-box {
@@ -445,17 +527,14 @@ footer {
     border-top: groove #d90d0d 3px;
     display: flex;
     justify-content: space-around;
-    padding: 1.8em 0.5em 1.4em;
+    padding: 1.2em 0.5em;
 }
 
 .pokedex-btn-box.btn-box-2-section {
-    bottom: 2em;
     box-sizing: border-box;
-    padding: 0.5em;
-    position: absolute;
-    width: 304px;
+    padding: 1em 0.5em;
+    width: 312px;
 }
-
 
 /*ELEMENTS CONFIGURATION*/
 
@@ -547,4 +626,162 @@ footer {
 #water {
     background: linear-gradient(157deg, #64a4ca 6%, #79b5d8 14%,#64a4ca 34%, #64a4ca 43%, #79b5d8 71%, #64a4ca 86%);
     border: 2px outset #becfda;
+}
+
+/*page statistics*/
+
+main#superior-container {
+    background: rgba(46, 128, 139, 0.43);
+    border-radius: 1em;
+    color: white;
+    margin: 10em auto 5em;
+    padding: 2em;
+    text-shadow: 1px 1px 3px black;
+    width: 70%;
+}
+
+section#stats-container {
+    padding: 2em 3em;
+}
+
+#stats-introduction {
+    font-size: 30px;
+    line-height: 1.3em;
+    margin-left: 1em;
+}
+
+.maxContDiv {
+    border: 3px groove rgb(209, 4, 4);
+    border-radius: 2em;
+    box-sizing: border-box;
+    height: 2.5em;
+    width: 100%;
+}
+
+.percentage {
+    background: linear-gradient(#a00000 0, #cd0000 40%, #f05858 55%, #d70404 67%, #a00000 100%);
+    border-radius: 2em 0 0 2em;
+    height: 100%;
+}
+
+.percentage p {
+    font-size: 20px;
+    margin: auto 5px;
+    padding: 7px;
+}
+
+/*end*/
+
+@media screen and (max-width: 800px){
+    header {
+        height: 3.5em;
+    }
+
+    #container-logo {
+        outline: none;
+        position: absolute;
+    }
+
+    #image-logo {
+        width: 9em;
+    }
+
+    #container-menu {
+        width: 100%;
+    }
+
+    #hamburguer-menu {
+        display: block;
+    }
+
+    #links-menu {
+        display: none;
+        height: 100%;
+        text-align: center;
+        top: 3em;
+    }
+
+    .horizontal-menu a {
+        background: whitesmoke;
+        display: block;
+    }
+
+    #links-menu a:hover {
+        background: #f5c23b;
+        color: #192576;
+    }
+
+    .hamburguer-menu {
+        color: red;
+    }
+
+    #superior-container {
+        margin-top: 5em;
+    }
+
+    #lists-div {
+        display: block;
+        margin: auto;
+        max-width: 75%;
+        padding: 0.5em 1em;
+        text-align: center;
+    }
+
+    #clear-filter-button-home {
+        position: absolute;
+    }
+
+    #search-div {
+        margin: 2em;
+    }
+
+    #search-button-home {
+        right: 1em;
+    }
+
+    #mini-card-container {
+        width: 90%;
+    }
+
+    #card {
+        width: 350px;
+    }
+
+    #card-first-half {
+        width: auto;
+    }
+
+    #card-second-half {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 1280px){
+    #superior-container { 
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 7em auto 0;
+        width: 95%;
+    }
+
+    #superior-container.stats-main {
+        flex-direction: column;
+    }
+
+    #search-div {
+        margin: 2em;
+    }
+
+    #search-home {
+        width: 15em;
+    }
+
+    #search-button-home {
+        position: relative;
+        right: 0;
+    }
+
+    #lists-div {
+        padding: 1.5em;
+    }
 }
