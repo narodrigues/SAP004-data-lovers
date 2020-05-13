@@ -1,4 +1,5 @@
 html {
+    font-family: sans-serif, Arial, Helvetica;
     height: 100%;
 }
 
@@ -53,11 +54,6 @@ option {
 }
 
 #container-menu {
-    /* display: none; */
-    /* position: inherit; */
-    /* top: 2.7em; */
-    /*display: block;*/
-    font-family: Arial, Helvetica, sans-serif;
     z-index: 1;
 }
 
@@ -68,16 +64,6 @@ option {
     top: 5px;
 }
 
-/*#container-menu {
-    display: block;
-}*/
-
-/*.horizontal-menu { 
-    display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100%;
-}*/
-
 #links-menu {
     position: relative;
     top: 2em;
@@ -85,7 +71,7 @@ option {
 
 .horizontal-menu a {
     align-self: center;
-    color: grey;
+    color: #585858;
     text-decoration: none;
     vertical-align: center;
     padding: 1em;
@@ -99,43 +85,6 @@ option {
     padding: 1em;
 }
 
-
-/*Início da pag statistics*/
-
-main#superior-container {
-    background: #ffffff6e;
-    border-radius: 1em;
-    margin: 10em auto 5em;
-    padding: 2em;
-    width: 70%;
-}
-
-section#statistics-container {
-    padding: 2em 3em;
-}
-
-.maxContDiv {
-    border: 2px solid black;
-    box-sizing: border-box;
-    height: 2.5em;
-    width: 100%;
-}
-
-.percentage {
-    background: red;
-    height: 100%;
-    width: 14%;
-}
-
-.percentage p {
-    font-size: 20px;
-    margin: auto;
-    padding: 7px;
-}
-
-/*fim*/
-
-
 #superior-container {
     display: flex;
     flex-direction: column;
@@ -147,7 +96,6 @@ section#statistics-container {
     border: 0px solid black;
     border-radius: 10px;
     color: white;
-    /*color:rgb(30, 60, 90);*/
     display: flex;
     font-size: 1.2em;
     font-style: italic;
@@ -196,33 +144,21 @@ section#statistics-container {
     position: absolute;
     right: 9em;
     width: 5em;
-    /*position: relative;
-    right: 0;
-    width: 5em;*/
 }
 
 #lists-div {
     align-items: center;
     display: flex;
     justify-content: center;
-    /* display: inline-block; */
     padding: 1.5em 5em;
     padding: 1.5em;
 }
-
-/*#lists-div {
-    align-items: center;
-    display: flex;
-    /*display: inline-block;
-    padding: 1.5em 5em;
-}*/
 
 .lists-home {
     background-color: rgba(30, 80, 200, 0.25);
     border: none;
     border-radius: 20px;
     color: white;
-    /*color:rgb(30, 60, 90);*/
     font-size: 1.2em;
     font-style: italic;
     height: 1.4em;
@@ -235,7 +171,6 @@ section#statistics-container {
 
 #clear-filter-button-home {
     background-image: url("/img/clear_filter.png");
-    /*background-size: contain;*/
     background-size: 21px   ;
     background-repeat: no-repeat;
     background-position: center center;
@@ -251,7 +186,6 @@ section#statistics-container {
 }
 
 #inferior-container {  
-    /*float: left;*/
     display: flex;
     justify-content: center;
     margin-bottom: 5em;
@@ -269,31 +203,33 @@ section#statistics-container {
 }
 
 .mini-card-div {
-    background-color: rgba(53, 35, 67, 0.5);
-    border: 2px solid rgba(33, 6, 167, 0.55);
+    background-color: rgba(20, 23, 73, 0.43);
+    border: 2px solid rgba(3, 72, 158, 0.55);
     border-radius: 5px;
+    box-sizing: border-box;
     display: inline-block;
-	height: 140px;
-    margin: 7px;
+	height: 170px;
+    margin: 6px;
     padding: 0.5em;
     position: relative;
-	text-align: center;
-    width: 100px;
+    transition: all 0.3s;
+    width: 130px;
 }
 
 .mini-card-div-highlight {
-	background-color: rgba(107, 47, 167, 0.5);
-	border: 2px solid rgb(32, 6, 167, 0.767);
+    background-color: rgba(0, 87, 255, 0.54);
+    border: 2px solid rgba(37, 107, 180, 0.55);
     border-radius: 5px;
     box-shadow: 1px 1px 40px cyan, 0 0 60px white, 0 0 40px darkblue;
+    box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-	height: 140px;
-    margin: 7px;
+	height: 170px;
+    margin: 6px;
     padding: 0.5em;
     position: relative;
-	text-align: center;
-    width: 100px;
+    width: 130px;
+    transition: all 0.3s;
 }
 
 .mini-card-image {
@@ -312,44 +248,42 @@ section#statistics-container {
 	background-color: transparent;
     border: 0px solid black;
     color: whitesmoke;
-    font-size: 1em;
-    margin-top: 1em;
+    font-family: inherit;
+    font-stretch: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 0.5em;
     outline: none;
 	resize: none;
-	text-align: center;
-    width: 95%;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    text-transform: uppercase;
+    width: 100%;
 }
 
 .mini-card-number {
-    background-color: rgba(124, 73, 176, 0.65);
+    background-color: rgba(35, 71, 141, 0.51);
+    border-radius: 1em;
     color: whitesmoke;
     font-size: 1em;
+    padding-top: 2px;
     position: absolute;
     right: 0.4em;
-    top: 0.4em;
+    top: 0.3em;
+    width: 2.5em;
 }
 
 footer {
     background-color: whitesmoke;
     margin-top: auto;
     padding: 1em;
-    /*bottom: 0;
-    /*display: flex;
-    float: left;
-    height: 4em;
-    justify-content: center;
-    margin-top: auto;
-    /*margin-top: 10em;*/
-    /*position: fixed;
-    width: 100%;
-    z-index: 300;*/
 }
     
 #cp-text {
     color: grey;
     font-size: 15px;
     text-align: center;
-
 }
 
 #card {
@@ -358,18 +292,15 @@ footer {
     border-radius: 10px;
     bottom: 0;
     box-shadow: 12px 12px 5px 0px rgba(0,0,0,0.75);
-    /*display: flex;*/
     display: none;
     height: 40em;
     left: 0;
     margin: auto;
     position: fixed;
     right: 0;
-    /*right: calc(50% - 171px);*/
     text-align: center;
     top: 0;
     width: 720px;   
-    /*width: 320px;*/
     z-index: 300;
 }
 
@@ -452,8 +383,6 @@ footer {
     display: inline-block;
     margin: 0 auto;
     padding: 25px 25px 40px;
-    /*padding: 20px 20px 35px;*/
-    /*width: 8em;*/
 }
 
 #pokedex-middle-detail {
@@ -481,7 +410,6 @@ footer {
     display: inline-block;
     display: none;
     height: 37.15em;
-    /*height: 32.5em;*/
     margin: 1em;
     width: 350px;
 }
@@ -494,7 +422,6 @@ footer {
 }
 
 #card-pokemon-evolutions h1{
-    /*height: 5em;*/
     width: 100%;
 }
 
@@ -515,7 +442,6 @@ footer {
     border: 2px inset #b3bfa6;
     font-size: 21px;
     margin: 1.5em auto 1.7em;
-    /*margin: 1em auto;*/
     padding: 5px;
     width: 85%;
 }
@@ -533,12 +459,9 @@ footer {
     color: white;
     display: inline-block;
     margin: 2.5em 0.5em;
-    /*margin: 1em 0.5em;*/
     padding: 0.8em;
-    /*padding: 0.7em;*/
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     width: 6.5em;
-    /*width: 6em;*/
 }
 
 .pokedex-btn {
@@ -565,12 +488,9 @@ footer {
 
 .pokemon-evolutions {
     margin: 0;
-    /*margin: 0 0.5em;*/
 }
 
 .pokemon-evolutions-img {     
-    /*margin: 0.5em 0;        
-    width: 4.5em;    */      
     height: 5em;
     margin: 0.5em;
     width: 5em;
@@ -579,8 +499,6 @@ footer {
 .pokemon-evolution-name {
     font-size: 16px;
     margin: 0.5em auto;
-    /*width: 4em;*/
-    width: 4.5em;
 }
 
 .pokedex-titles-box {
@@ -607,20 +525,13 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 1.2em 0.5em;
-    /*padding: 2em 0.5em;*/
-    /*padding: 1.48em 0.5em 1.48em;*/
-    /*padding: 1.8em 0.5em 1.4em;*/
 }
 
 .pokedex-btn-box.btn-box-2-section {
-    /*bottom: 2em;*/
     box-sizing: border-box;
     padding: 1em 0.5em;
-    /*position: absolute;*/
     width: 312px;
-    /*width: 304px;*/
 }
-
 
 /*ELEMENTS CONFIGURATION*/
 
@@ -714,12 +625,51 @@ footer {
     border: 2px outset #becfda;
 }
 
+/*page statistics*/
+
+main#superior-container {
+    background: rgba(46, 128, 139, 0.43);
+    border-radius: 1em;
+    color: white;
+    margin: 10em auto 5em;
+    padding: 2em;
+    text-shadow: 1px 1px 3px black;
+    width: 70%;
+}
+
+section#stats-container {
+    padding: 2em 3em;
+}
+
+#stats-introduction {
+    font-size: 30px;
+    line-height: 1.3em;
+    margin-left: 1em;
+}
+
+.maxContDiv {
+    border: 3px groove rgb(209, 4, 4);
+    border-radius: 2em;
+    box-sizing: border-box;
+    height: 2.5em;
+    width: 100%;
+}
+
+.percentage {
+    background: linear-gradient(#a00000 0, #cd0000 40%, #f05858 55%, #d70404 67%, #a00000 100%);
+    border-radius: 2em 0 0 2em;
+    height: 100%;
+}
+
+.percentage p {
+    font-size: 20px;
+    margin: auto 5px;
+    padding: 7px;
+}
+
+/*end*/
 
 @media screen and (max-width: 800px){
-    /*body {
-        width: 100%;
-    }*/
-
     header {
         height: 3.5em;
     }
@@ -733,39 +683,12 @@ footer {
         width: 9em;
     }
 
-  
-
-    /*#container-menu {
-        display: none;
-        position: relative;
-        top: 2.7em;
-        width: 100%;
-        z-index: 1;
-    }*/
-
-    /*.horizontal-menu {
-        display: block;
-        height: 100%;
-        text-align: center;
-    }*/
-
     #container-menu {
-        /* display: none; */
-        /* position: inherit; */
-        /* top: 2.7em; */
-        /*display: block;*/
-        /*font-family: Arial, Helvetica, sans-serif;
-        z-index: 1;*/
         width: 100%;
-
     }
 
     #hamburguer-menu {
         display: block;
-        /* display: none; */
-        /*position: absolute;
-        top: 0;
-        right: 0;*/
     }
 
     #links-menu {
@@ -787,7 +710,6 @@ footer {
 
     .hamburguer-menu {
         color: red;
-        /*visibility: hidden;*/
     }
 
     #superior-container {
@@ -818,27 +740,9 @@ footer {
         width: 90%;
     }
 
-    /*.mini-card-div {
-        height: 155px;
-        width: 115px;
-    }*/
-
-
-
-
-
     #card {
         width: 350px;
     }
-
-    /*#pokedex-middle-detail {
-        border-right: 2px solid black;
-        border-left: 2px solid black;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 25px;
-    }*/
 
     #card-first-half {
         width: auto;
@@ -847,20 +751,17 @@ footer {
     #card-second-half {
         width: auto;
     }
-
 }
 
 @media screen and (min-width: 1280px){
     #superior-container { 
         flex-direction: row;
         justify-content: space-evenly;
-        /*justify-content: space-between;*/
-        /*justify-content: space-around;*/
         margin: 7em auto 0;
         width: 95%;
     }
 
-    #superior-container.statistics-main {
+    #superior-container.stats-main {
         flex-direction: column;
     }
 

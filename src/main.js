@@ -74,13 +74,10 @@ function minicardMouseOut() {
 document.getElementById("filter-type").addEventListener("change", filters);
 document.getElementById("filter-value").addEventListener("change", filters);
 
-
 function filters(){
-
     let filterType = document.getElementById("filter-type").value;
     let filterValue = document.getElementById("filter-value").value;
     
-
     if (filterType != "default" && filterValue != "default"){
         let filterArray = [];
         document.getElementById("mini-card-container").innerHTML = null;
@@ -96,6 +93,8 @@ function filters(){
     }
 }
 
+document.getElementById("clear-filter-button-home").addEventListener("click", clearFilter);
+
 function clearFilter() {
     document.getElementById("filter-value").value = "default";
     document.getElementById("filter-type").value = "default";
@@ -104,78 +103,91 @@ function clearFilter() {
     createCard();    
 }
 
-document.getElementById("clear-filter-button-home").addEventListener("click",clearFilter);
+const sort = document.getElementById("sort-home");
+sort.addEventListener("change", sortBy);
 
-function changeDisplay(e){
-    if(e.target.id == "view-more"){
-        document.getElementById("card-first-half").style.display = "none";
-        document.getElementById("card-second-half").style.display = "block";
-    } else {
-        document.getElementById("card-second-half").style.display = "none";
-        document.getElementById("card-first-half").style.display = "block";
+function sortBy(){
+    switch(sort.value){
+        case "a-z":
+            utils.sortData(myObject.pokemon, "name", sort.value);
+            break;
+        case "z-a":
+            utils.sortData(myObject.pokemon, "name", sort.value);
+            break;
+        case "1-151":
+            utils.sortData(myObject.pokemon, "num", sort.value);
+            break;
+        case "151-1":
+            utils.sortData(myObject.pokemon, "num", sort.value);
+            break;
     }
+    filters();
 }
 
 function minicardMouseClick(e){
+    const card = document.getElementById("card");
+    const firstHalfCard = document.getElementById("card-first-half");
+    const secondHalfCard = document.getElementById("card-second-half");
+    const pokedexMiddleDatail = document.getElementById("pokedex-middle-detail");
+    const pokedexHinge = document.querySelector(".hinge");
+    const btnViewMore = document.getElementById("view-more");
+    const btnClose = document.getElementsByClassName("close-btn");
+    const secondBtnBox = document.querySelector(".btn-box-2-section");
+    const pokemonInfos = document.getElementById("pokemon-infos-card");
+    const pokemonImg = document.getElementById("card-pokemon-img");
+    const pokemonTypes = document.getElementsByClassName("pokemon-type");
+    const pokemonEvolutions = document.getElementById("card-pokemon-evolutions");
+    const pokemonCandys = document.getElementById("candys");
+   
+    if(window.innerWidth >= 800){
+        card.style.display = "flex";
+        firstHalfCard.style.display = "block";
+        secondHalfCard.style.display = "block";
+        pokedexMiddleDatail.style.display = "flex";
+        pokedexHinge.style.display = "block";
+        btnViewMore.style.display = "none";
+        secondBtnBox.style.display = "none";
+    } else {
+        card.style.display = "block";
+        firstHalfCard.style.display = "block";
+        secondHalfCard.style.display = "none";
+        pokedexMiddleDatail.style.display = "none";
+        pokedexHinge.style.display = "none";
+        btnViewMore.style.display = "block";
+        secondBtnBox.style.display = "flex";
+    }
+    
     (function reset(){
-        document.getElementById("card-pokemon-img").innerHTML = null;
-        document.getElementsByClassName("pokemon-type")[0].innerHTML = null;
-        document.getElementById("card-pokemon-evolutions").innerHTML = null;
-        document.getElementsByClassName("pokemon-type")[1].innerHTML = null;
-        document.getElementById("pokemon-infos-card").innerHTML = null;
-        document.getElementById("candys").innerHTML = null;
+        pokemonImg.innerHTML = null;
+        pokemonTypes[0].innerHTML = null;
+        pokemonEvolutions.innerHTML = null;
+        pokemonTypes[1].innerHTML = null;
+        pokemonInfos.innerHTML = null;
+        pokemonCandys.innerHTML = null;
     })();
 
-    let card = document.getElementById("card");
+    document.querySelector("main").addEventListener("click", close, true);
+    btnClose[0].addEventListener("click", close);
+    btnClose[1].addEventListener("click", close);
+    btnViewMore.addEventListener("click", changeDisplay);
+    document.getElementById("view-less").addEventListener("click", changeDisplay);
 
     function close(){
         card.style.display = "none";
     }
 
-    function pokedex(){
-        if(window.innerWidth >= 800){
-            /*middleDetail.style.display = "flex";*/
-            card.style.display = "flex";
-            document.getElementById("card-first-half").style.display = "block";
-            document.getElementById("card-second-half").style.display = "block";
-            document.getElementById("pokedex-middle-detail").style.display = "flex";
-            document.querySelector(".hinge").style.display = "block";
-            document.getElementById("view-more").style.display = "none";
-            /*document.getElementById("view-less").style.display = "none";    
-            document.getElementsByClassName("close-btn")[1].style.display = "none";  */  
-            document.querySelector(".btn-box-2-section").style.display = "none";
+    function changeDisplay(e){
+        if(e.target.id == "view-more"){
+            firstHalfCard.style.display = "none";
+            secondHalfCard.style.display = "block";
         } else {
-            /*middleDetail.style.display = "none";*/
-            card.style.display = "block";
-            document.getElementById("card-first-half").style.display = "block";
-            document.getElementById("card-second-half").style.display = "none";
-            document.getElementById("pokedex-middle-detail").style.display = "none";
-            document.querySelector(".hinge").style.display = "none";
-            document.getElementById("view-more").style.display = "block";
-            /*document.getElementById("view-less").style.display = "block";    
-            document.getElementsByClassName("close-btn")[1].style.display = "block";    */
-            document.querySelector(".btn-box-2-section").style.display = "flex";
+            firstHalfCard.style.display = "block";
+            secondHalfCard.style.display = "none";
         }
     }
-    pokedex();
 
-    /*window.addEventListener("resize", function(){
-        pokedex();
-    });*/
-
-    document.getElementById("inferior-container").addEventListener("click", close, true);
-    document.getElementsByClassName("close-btn")[0].addEventListener("click", close);
-    document.getElementsByClassName("close-btn")[1].addEventListener("click", close);
-    document.getElementById("view-more").addEventListener("click", changeDisplay);
-    document.getElementById("view-less").addEventListener("click", changeDisplay);
-
-    /*card.style.display = "block";*/
-    /*document.getElementById("card-first-half").style.display = "block";
-    document.getElementById("card-second-half").style.display = "none";*/
-  
     let selectedPokemonNum = e.currentTarget.id.slice(7);
     let selectedPokemon = myObject.pokemon[selectedPokemonNum];
-    //let selectedPokemon = allPokemons.find(selectedPokemon => selectedPokemon.id == selectedPokemonNum);
 
     let pokemonName = document.createElement("h1");
     pokemonName.id = "pokemon-name";
@@ -185,22 +197,22 @@ function minicardMouseClick(e){
     pokemonNum.id = "pokemon-number";
     pokemonNum.innerHTML = selectedPokemon.num;
 
-    document.getElementById("pokemon-infos-card").append(pokemonName, pokemonNum);
+    pokemonInfos.append(pokemonName, pokemonNum);
 
     let newImg = document.createElement("img");
-    document.getElementById("card-pokemon-img").appendChild(newImg);
+    pokemonImg.appendChild(newImg);
     newImg.className = "pokemon-img";
     newImg.src = selectedPokemon.img;
     
     for(let type of selectedPokemon.type){
         let pokemonType = document.createElement("p");
-        document.getElementsByClassName("pokemon-type")[0].appendChild(pokemonType);
+        pokemonTypes[0].appendChild(pokemonType);
         pokemonType.innerHTML = type;
         pokemonType.id = type.toLowerCase(type);
     }
 
     let evolutionsTitle = document.createElement("h1");
-    document.getElementById("card-pokemon-evolutions").appendChild(evolutionsTitle);
+    pokemonEvolutions.appendChild(evolutionsTitle);
     evolutionsTitle.className = "pokedex-titles";
     evolutionsTitle.innerHTML = "Evolutions";   
 
@@ -229,26 +241,25 @@ function minicardMouseClick(e){
         evolutionFigure.className = "pokemon-evolutions";
 
         let evolutionImg = document.createElement("img");
-        evolutionFigure.appendChild(evolutionImg);
         evolutionImg.className = "pokemon-img pokemon-evolutions-img";
         evolutionImg.src = evolutionObj.img;
 
         let evolutionName = document.createElement("figcaption");
-        evolutionFigure.appendChild(evolutionName);
         evolutionName.className = "pokemon-infos pokemon-evolution-name";
         evolutionName.innerHTML = evolutionObj.name;
 
-        document.getElementById("card-pokemon-evolutions").appendChild(evolutionFigure);
+        evolutionFigure.append(evolutionImg, evolutionName);
+        pokemonEvolutions.appendChild(evolutionFigure);
     }
 
     let pokemonWeaknessTitle = document.createElement("h1");
-    document.getElementsByClassName("pokemon-type")[1].appendChild(pokemonWeaknessTitle);
+    pokemonTypes[1].appendChild(pokemonWeaknessTitle);
     pokemonWeaknessTitle.className = "pokedex-titles";
     pokemonWeaknessTitle.innerHTML = "Weaknesses";
 
     for(let weaknessType of selectedPokemon.weaknesses){
         let pokemonWeaknessType = document.createElement("p");
-        document.getElementsByClassName("pokemon-type")[1].appendChild(pokemonWeaknessType);
+        pokemonTypes[1].appendChild(pokemonWeaknessType);
         pokemonWeaknessType.innerHTML = weaknessType;
         pokemonWeaknessType.id = weaknessType.toLowerCase(weaknessType);
     }
@@ -259,33 +270,13 @@ function minicardMouseClick(e){
 
     let candysP = document.createElement("p");
     candysP.id = "candy-p";
-    document.getElementById("candys").append(candysTitle, candysP);
+    pokemonCandys.append(candysTitle, candysP);
 
+    const pokemonCandyP = document.getElementById("candy-p");
 
     if("candy_count" in selectedPokemon){
-        document.getElementById("candy-p").innerHTML = selectedPokemon.candy_count + " candies to evolve <img src='./img/GO_Rare_Candy.png' width='40px'>";
+        pokemonCandyP.innerHTML = selectedPokemon.candy_count + " candies to evolve <img src='./img/GO_Rare_Candy.png' width='40px'>";
     } else {
-        document.getElementById("candy-p").innerHTML = "Can't evolve with candys";
+        pokemonCandyP.innerHTML = "Can't evolve with candys";
     }
-}
-
-const sort = document.getElementById("sort-home");
-sort.addEventListener("change", sortBy);
-
-function sortBy(){
-    switch(sort.value){
-        case "a-z":
-            utils.sortData(myObject.pokemon, "name", sort.value);
-            break;
-        case "z-a":
-            utils.sortData(myObject.pokemon, "name", sort.value);
-            break;
-        case "1-151":
-            utils.sortData(myObject.pokemon, "num", sort.value);
-            break;
-        case "151-1":
-            utils.sortData(myObject.pokemon, "num", sort.value);
-            break;
-    }
-    filters();
 }
