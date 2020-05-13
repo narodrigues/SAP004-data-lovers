@@ -121,7 +121,7 @@ option {
     padding-right: 0.5em;
 }
 
-#search-form {
+#search-home-container {
     border-radius: 15px;
     display: flex;
     outline: none;
@@ -139,10 +139,10 @@ option {
     font-size: 1.2em;
     font-style: italic;
     height: 30px;
-    margin: auto;
+    margin: 3px auto;
     outline: none;
     position: absolute;
-    right: 9em;
+    right: 10.5em;
     width: 3em;  
 }
 
@@ -277,6 +277,7 @@ option {
 footer {
     background-color: whitesmoke;
     margin-top: auto;
+    padding: 1em;
 }
     
 #cp-text {
@@ -736,7 +737,7 @@ section#stats-container {
     }
 
     #search-button-home {
-        right: 1em;
+        right: 2em;
     }
 
     #mini-card-container {
