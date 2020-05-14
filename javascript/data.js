@@ -79,7 +79,6 @@ const utils = {
     }
     return types;
   }
-
 }
 
 export default utils;
