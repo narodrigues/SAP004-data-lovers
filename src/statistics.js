@@ -12,11 +12,12 @@ for(let key in calc){
 
   let percentCont = document.createElement("div");
   percentCont.className = "percentage";
+  percentCont.id = key.toLowerCase(key);
   percentCont.style.width = calc[key] + "%";
 
-  let paragrafo = document.createElement("p");
-  percentCont.append(paragrafo);
-  paragrafo.innerHTML = calc[key] + "%";
+  let paragraph = document.createElement("p");
+  percentCont.append(paragraph);
+  paragraph.innerHTML = calc[key] + "%";
   
   document.getElementById("stats-container").append(type, maxCont);
   maxCont.append(percentCont);

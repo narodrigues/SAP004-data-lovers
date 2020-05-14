@@ -14,7 +14,6 @@ const utils = {
             filterArray.push(i);
           }
         }
-
       } else if (filterType == "weaknesses") {
         for (let j = 0 ; j < myObject.pokemon[i].weaknesses.length; j++) {
           if (myObject.pokemon[i].weaknesses[j] == filterValue) {
