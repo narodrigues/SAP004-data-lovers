@@ -161,7 +161,7 @@ function minicardMouseClick(e){
     if(window.innerWidth >= 800){
         card.style.display = "flex";
         firstHalfCard.style.display = "block";
-        secondHalfCard.style.display = "block";
+        secondHalfCard.style.display = "flex";
         pokedexMiddleDatail.style.display = "flex";
         pokedexHinge.style.display = "block";
         btnViewMore.style.display = "none";
@@ -198,7 +198,7 @@ function minicardMouseClick(e){
     function changeDisplay(e){
         if(e.target.id == "view-more"){
             firstHalfCard.style.display = "none";
-            secondHalfCard.style.display = "block";
+            secondHalfCard.style.display = "flex";
         } else {
             firstHalfCard.style.display = "block";
             secondHalfCard.style.display = "none";
@@ -272,13 +272,17 @@ function minicardMouseClick(e){
     }
 
     let pokemonWeaknessTitle = document.createElement("h1");
-    pokemonTypes[1].appendChild(pokemonWeaknessTitle);
     pokemonWeaknessTitle.className = "pokedex-titles";
     pokemonWeaknessTitle.innerHTML = "Weaknesses";
 
+    let weaknessesPBox = document.createElement("div");
+    weaknessesPBox.classList = "weaknesses-p-box";
+
+    pokemonTypes[1].append(pokemonWeaknessTitle, weaknessesPBox);
+
     for(let weaknessType of selectedPokemon.weaknesses){
         let pokemonWeaknessType = document.createElement("p");
-        pokemonTypes[1].appendChild(pokemonWeaknessType);
+        weaknessesPBox.appendChild(pokemonWeaknessType);
         pokemonWeaknessType.innerHTML = weaknessType;
         pokemonWeaknessType.id = weaknessType.toLowerCase(weaknessType);
     }
