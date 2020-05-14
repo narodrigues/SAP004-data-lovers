@@ -323,7 +323,7 @@ if(body.id == "statistics"){
 		const pokemonCandyP = document.getElementById("candy-p");
 
 		if("candy_count" in selectedPokemon){
-			pokemonCandyP.innerHTML = selectedPokemon.candy_count + " candies to evolve <img src='../img/GO_Rare_Candy.png' width='40px'>";
+			pokemonCandyP.innerHTML = selectedPokemon.candy_count + " candies to evolve <img src='./img/GO_Rare_Candy.png' width='40px'>";
 		} else {
 			pokemonCandyP.innerHTML = "Can't evolve with candys";
 		}
