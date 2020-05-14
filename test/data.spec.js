@@ -1,4 +1,4 @@
-import utils from '../src/data.js';
+import utils from '../src/javascript/data.js';
 import myObject from '../src/data/pokemon/pokemon.js';
 
 describe('utils', () => {
