@@ -1,6 +1,6 @@
 html {
 	font-family: sans-serif, Arial, Helvetica;
-	height: 100%;
+	height: 100vh;
 }
 
 body { 
@@ -11,7 +11,7 @@ body {
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	height: 100vh;
 	margin: 0;
 }
 
