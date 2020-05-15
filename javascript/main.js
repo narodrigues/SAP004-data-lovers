@@ -33,7 +33,7 @@ resizeBackground();*/
 
 
 window.addEventListener("resize", function(){
-	body.height(window.innerHeight);
+	body.height = window.innerHeight;
 });
 
 
