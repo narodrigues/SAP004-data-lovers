@@ -20,6 +20,13 @@ window.addEventListener("resize", function(){
 	}
 });
 
+const mainToClose = document.querySelector("main").addEventListener("click", close, true);
+
+function close(){
+	card.style.display = "none";
+	topNav.style.display = "none"
+}
+
 const body = document.querySelector("body");
 
 if(body.id == "statistics"){
@@ -210,15 +217,12 @@ if(body.id == "statistics"){
 			pokemonCandys.innerHTML = null;
 		})();
 
-		document.querySelector("main").addEventListener("click", close, true);
+		mainToClose;
+		/*document.querySelector("main").addEventListener("click", close, true);*/
 		btnClose[0].addEventListener("click", close);
 		btnClose[1].addEventListener("click", close);
 		btnViewMore.addEventListener("click", changeDisplay);
 		document.getElementById("view-less").addEventListener("click", changeDisplay);
-
-		function close(){
-			card.style.display = "none";
-		}
 
 		function changeDisplay(e){
 			if(e.target.id == "view-more"){
