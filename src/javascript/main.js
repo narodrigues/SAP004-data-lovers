@@ -32,14 +32,9 @@ resizeBackground();*/
 
 
 
-
-function resizeBackground2() {
+window.addEventListener("resize", function(){
 	body.height(window.innerHeight);
-}
-
-window.resize(resizeBackground2);
-resizeBackground2();
-
+});
 
 
 
