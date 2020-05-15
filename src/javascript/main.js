@@ -20,26 +20,6 @@ window.addEventListener("resize", function(){
 	}
 });
 
-
-
-
-/*function resizeBackground() {
-	body.height(window.screen.height);
-}
-
-window.resize(resizeBackground);
-resizeBackground();*/
-
-
-
-window.addEventListener("resize", function(){
-	body.height = window.innerHeight;
-});
-
-
-
-
-
 const mainToClose = document.querySelector("main").addEventListener("click", close, true);
 
 function close(){
