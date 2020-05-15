@@ -20,6 +20,31 @@ window.addEventListener("resize", function(){
 	}
 });
 
+
+
+
+/*function resizeBackground() {
+	body.height(window.screen.height);
+}
+
+window.resize(resizeBackground);
+resizeBackground();*/
+
+
+
+
+function resizeBackground2() {
+	body.height(window.innerHeight);
+}
+
+window.resize(resizeBackground2);
+resizeBackground2();
+
+
+
+
+
+
 const mainToClose = document.querySelector("main").addEventListener("click", close, true);
 
 function close(){
