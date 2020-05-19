@@ -29,22 +29,22 @@
       </nav>
     </header> 
     <main>
-        <h2 id="chart-title">Charts</h2>
-        <div id="chart-options-container">
-          <select class="chart-options" name="chart-option">
-            <option value="default">Charts Options</option>
-            <option value="Pye">Pie</option>
-            <option value="Bar">Bar</option>
-          </select>
-          <select class="chart-options" name="chart-option">
-            <option value="default">Charts by Characterists</option>
-            <option value="type">Type</option>
-            <option value="egg">Found in Eggs</option>
-          </select>
-        </div>
-        <div id="chart-wrap">
-          <div id="chart-div"></div>
-        </div>
+      <h2 id="chart-title">Charts</h2>
+      <div id="chart-options-container">
+        <p class="subtitle">Charts Type</p>
+        <select id="chart-types" class="chart-options" name="chart-option">
+          <option value="Pie">Pie</option>
+          <option value="Bar">Bar</option>
+        </select>
+        <p class="subtitle">Charts Value</p>
+        <select id="chart-values" class="chart-options" name="chart-option">
+          <option value="type">Type</option>
+          <option value="egg">Found in Eggs</option>
+        </select>
+      </div>
+      <div id="chart-wrap">
+        <div id="chart-div"></div>
+      </div>
     </main>
     <footer>
       <address>

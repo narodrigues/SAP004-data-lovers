@@ -37,7 +37,6 @@ const utils = {
     return indexArray;
   },
 
-
   sortData: function(data, sortBy, sortOrder){
     switch(sortOrder){
       case "a-z":

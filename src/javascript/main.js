@@ -168,7 +168,6 @@ function sortBy(){
 		case "151-1":
 			utils.sortData(myObject.pokemon, "num", sort.value);
 			break;
-
 	}
 	filters();
 }
