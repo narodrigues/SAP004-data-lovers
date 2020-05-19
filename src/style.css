@@ -682,12 +682,15 @@ section#stats-container {
     text-shadow: 1px 1px 3px #000000;
 }
 
+.subtitle {
+    color: rgb(70, 70, 70);
+}
+
 #chart-options-container {
     display: flex;
     margin-top: 2em;
     justify-content: center;
     width: 100%;
-    border: 2px solid black;
 }
 
 .chart-options {
@@ -707,15 +710,13 @@ section#stats-container {
 
 #chart-wrap {
     position: relative;
-    /* padding-bottom: 100%; */
     height: 0;
-    border: 2px solid red;
     margin-top: 2em;
     height: auto;
 }
 
 #chart-div {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 100%;
     height: 100%;
     position: relative;
@@ -723,6 +724,7 @@ section#stats-container {
     left: 0;
     width: 100%;
     height: auto;
+    background-color: rgba(15, 150, 200, 0.5);
 }
 
 /*end*/

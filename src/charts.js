@@ -49,28 +49,31 @@ document.getElementById("chart-types").addEventListener("change", loadChart);
 document.getElementById("chart-values").addEventListener("change", loadChart);
 
 function loadChart () {
-  // google.charts.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(drawChart);
 } 
 
 drawChart();
 
 function drawChart() {
+  if(!google.visualization)
+    return;
   
   let chartValue = document.getElementById("chart-values").value;
   let dataArray = [];
+  let options = {};
 
   if (chartValue == "type") {
-  dataArray = chartDataType();
+    dataArray = chartDataType();
+    options = {'title': "Percentage of Pokémon Types",'width':600,'height':450,'backgroundColor': 'transparent'};
   } else if (chartValue == "egg") {
     dataArray = chartDataEgg();
+    options = {'title': "Number of Pokémon Found in Eggs",'width':600,'height':450,'backgroundColor': 'transparent'};
   }
 
   let data = new google.visualization.DataTable();
   data.addColumn('string', 'Topping');
-  data.addColumn('number', 'xxx');
+  data.addColumn('number', 'Pokémon Found \nin Eggs');
   data.addRows(dataArray);
-  
-  let options = {'title': "",'width':520,'height':450, 'backgroundColor': 'rgba(145, 191, 246, 0.65)'};
 
   let chart;
   let chartType = document.getElementById("chart-types").value;
@@ -82,3 +85,4 @@ function drawChart() {
     chart.draw(data, options);
   }
 }
+
