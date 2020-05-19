@@ -5,28 +5,7 @@ const body = document.querySelector("body");
 const menu = document.querySelector("#hamburguer-menu");
 const topNav = document.querySelector("#links-menu");
 const card = document.getElementById("card");
-const mainToClose = document.querySelector("main").addEventListener("click", close, true);
-
-function close(){
-	card.style.display = "none";
-	topNav.style.display = "none"
-}
-
-menu.addEventListener("click", function(){
-	if(topNav.style.display === "block") {
-		topNav.style.display = "none";
-	} else {
-		topNav.style.display = "block";
-	}
-});
-
-window.addEventListener("resize", function(){
-	if(window.innerWidth >= 800){
-		topNav.style.display = "block";
-	} else {
-		topNav.style.display = "none";
-	}
-});
+const mainToClose = document.querySelector("main");
 
 if(body.id == "statistics"){
 	let calc = utils.computeStats(myObject.pokemon);
@@ -51,6 +30,27 @@ if(body.id == "statistics"){
 		maxCont.append(percentCont);
 	}
 } 
+
+menu.addEventListener("click", function(){
+	if(topNav.style.display === "block") {
+		topNav.style.display = "none";
+	} else {
+		topNav.style.display = "block";
+		mainToClose.addEventListener("click", closeNav, true);
+	}
+});
+
+window.addEventListener("resize", function(){
+	if(window.innerWidth >= 800){
+		topNav.style.display = "block";
+	} else {
+		closeNav();
+	}
+});
+
+function closeNav(){
+	topNav.style.display = "none"
+}
 
 function createMiniCard(n) {
 	let newCard = document.createElement("DIV");
@@ -81,7 +81,6 @@ function createCard(){
 		createMiniCard(i);
 	}
 }
-
 createCard();
 			
 function miniCardMouseEvents(selectedDiv){
@@ -215,12 +214,15 @@ function minicardMouseClick(e){
 		pokemonCandys.innerHTML = null;
 	})();
 
-
-	mainToClose;
-	btnClose[0].addEventListener("click", close);
-	btnClose[1].addEventListener("click", close);
+	mainToClose.addEventListener("click", closeCard, true);
+	btnClose[0].addEventListener("click", closeCard);
+	btnClose[1].addEventListener("click", closeCard);
 	btnViewMore.addEventListener("click", changeDisplay);
 	document.getElementById("view-less").addEventListener("click", changeDisplay);
+
+	function closeCard(){
+		card.style.display = "none";
+	}
 
 	function changeDisplay(e){
 		if(e.target.id == "view-more"){
