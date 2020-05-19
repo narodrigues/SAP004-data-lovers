@@ -795,6 +795,10 @@ section#stats-container {
 	width: 100%;
 }
 
+.subtitle {
+	color: rgb(70, 70, 70);
+}
+
 .chart-options {
 	background-color: rgba(30, 80, 200, 0.25);
 	border: none;
@@ -811,12 +815,12 @@ section#stats-container {
 }
 
 #chart-wrap {
-	border: 2px solid red;
 	margin-top: 2em;
 	position: relative;
 }
 
 #chart-div {
+	background-color: rgba(15, 150, 200, 0.5);
 	left: 0;
 	position: relative;
 	top: 0;
@@ -835,13 +839,11 @@ section#stats-container {
 	margin-bottom: 2em;
 }
 
-
 #title-tips {
 	color: whitesmoke;
 	display: flex;
 	font-size: 2em;
 	justify-content: center;
-
 	margin-top: 4.5em;
 	text-shadow: 1px 1px 3px #000000;
 }
