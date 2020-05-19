@@ -65,7 +65,7 @@ function drawChart() {
   if (chartValue == "type") {
     dataArray = chartDataType();
     options = {'title':"Percentage of Pokémon Types", 'backgroundColor':'transparent', 'width':600, 'height':450};
-    
+
     if(window.innerWidth <= 450){
       options.width = 300, options.height = 250;
     } else if(window.innerWidth <= 650){
@@ -73,7 +73,7 @@ function drawChart() {
     }
   } else if (chartValue == "egg") {
     dataArray = chartDataEgg();
-    options = {'title':"Number of Pokémon Found in Eggs", 'width':300, 'height':250, 'backgroundColor':'transparent'};
+    options = {'title':"Number of Pokémon Found in Eggs", 'backgroundColor':'transparent', 'width':600, 'height':450};
 
     if(window.innerWidth <= 450){
       options.width = 300, options.height = 250;
