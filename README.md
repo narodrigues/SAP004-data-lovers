@@ -44,8 +44,8 @@ Uma consideração importante a ser feita é que a base de dados que foi utiliza
 
 #### Tela final
 
-![Desktop final|512, 20%](https://user-images.githubusercontent.com/42393520/82387293-00639500-9a0d-11ea-9c8e-a520ab2b9e70.png)
-![Pokédex final|512, 20%](https://user-images.githubusercontent.com/42393520/82387297-035e8580-9a0d-11ea-8f12-96b18a2cf874.png)
+![Desktop final|width=512, 20%](https://user-images.githubusercontent.com/42393520/82387293-00639500-9a0d-11ea-9c8e-a520ab2b9e70.png)
+![Pokédex final|width="512", 20%](https://user-images.githubusercontent.com/42393520/82387297-035e8580-9a0d-11ea-8f12-96b18a2cf874.png)
 
 Todo o projeto foi realizado de maneira responsiva, sendo possível acessá-lo do celular até em telas maiores, como uma televisão.
 
